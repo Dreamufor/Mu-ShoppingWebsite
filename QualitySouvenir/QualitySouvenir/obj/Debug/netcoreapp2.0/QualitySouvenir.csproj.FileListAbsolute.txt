@@ -1,0 +1,14 @@
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.deps.json
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.json
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.dll
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.pdb
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
+C:\Users\Administrator\Desktop\mu-qs\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb
+C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
+C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb

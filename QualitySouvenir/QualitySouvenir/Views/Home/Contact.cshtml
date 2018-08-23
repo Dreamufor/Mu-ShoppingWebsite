@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="container-fluid">
+    <p style="border:solid lightgray;border-width:0 0 1px 0;margin:1% 7%;">  <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
+    <div class="row" style="margin:2% 5%;">
+        <div class="col-md-4 mt-3">
+            <div class="card" style="width: auto;height:100%;">
+                <div class="card-body">
+                    <h3 class="card-title">Contact us</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">Quality Souvenir Ltd.</h6>
+                    <address class="card-text">
+                        One Microsoft Way<br />
+                        Redmond, WA 98052-6399<br />
+                        <abbr title="Phone">P:</abbr>
+                        425.555.0100
+                    </address>
+                    <address class="card-text">
+                        <strong>Support:</strong> <a class="card-link" href="mailto:Support@example.com">Support@example.com</a><br />
+                        <strong>Marketing:</strong> <a class="card-link" href="mailto:Marketing@example.com">Marketing@example.com</a>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <div class="card align-item-center" style="padding:0.5%;">
+                <img class="card-img-top rounded mx-auto" src="~/images/showcase.jpg" alt="showcase">
+            </div>
+        </div>
+    </div>
+</div>
