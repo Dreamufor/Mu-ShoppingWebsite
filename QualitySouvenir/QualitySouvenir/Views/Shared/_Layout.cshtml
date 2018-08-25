@@ -17,22 +17,32 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     </environment>
+    
+    <style type="text/css">
+        li.nav-item:hover {
+            border: 1px solid #818182;
+            border-radius: 5px;
+        }
+        li.nav-item {
+            border: 1px solid transparent;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><i class="fa fa-gift ml-3" style="font-size:40px;"></i></a>
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><img src="~/images/logo.png" class="img-fluid" style="height:45px;" /></a>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><i class="fa fa-gift ml-3" style="font-size:50px;"></i></a>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><img src="~/images/title.png" class="img-fluid" style="height:75px;" /></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="navbar-collapse">
             <ul class="mr-auto navbar-nav ml-5">
-                <li class="nav-item ml-5">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <li class="nav-item ml-3">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item ml-3 dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-area="" asp-controller="Home" asp-action=" ">Products</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-area="" asp-controller="Home" asp-action=" "><i class="fas fa-gift mr-2"></i>Products</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Maori Gifts</a>
                         <a class="dropdown-item" href="#">T-Shirts</a>
@@ -41,21 +51,25 @@
                     </div>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About"><i class="fas fa-smile-wink mr-2"></i>About</a>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact us</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact"><i class="fas fa-phone mr-2"></i>Contact us</a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a asp-area="" asp-controller=" " asp-action=" " class="nav-link ml-3"><i class="fas fa-shopping-cart mr-2"></i>Cart</a>
                 </li>
             </ul>
             @await Html.PartialAsync("_LoginPartial")
         </div>
-    </nav>
-    <div class="input-group float-right" style="width:175px;">
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-append">
-            <button class="btn btn-outline-se" type="submit"><i class="fas fa-search"></i></button>
+        <div class="input-group float-right ml-5" style="width:200px;">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+                <button class="btn btn-outline-se" type="submit"><i class="fas fa-search"></i></button>
+            </div>
         </div>
-    </div>
+    </nav>
+   
     @*body*@
     <div class="container-fuild body-content">
         @RenderBody()
@@ -91,7 +105,7 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <i class="fa fa-gift" style="font-size:75px;color:black;"></i><br />
-                        <img src="~/images/tirtle.png" style="width:160px;" />
+                        <img src="~/images/title.png" style="width:160px;" />
                     </div>
                 </div>
             </div>

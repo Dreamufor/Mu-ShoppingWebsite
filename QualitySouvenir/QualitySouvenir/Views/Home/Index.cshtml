@@ -1,7 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .image-list .image-cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 
+    .image-cover {
+        opacity: 0;
+        background: #000000;
+        border-top-left-radius: calc(0.25rem - 1px);
+        border-top-right-radius: calc(0.25rem - 1px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-cover:hover {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+</style>
 @* Carousel *@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000" style="margin:0px -15px 10px -15px;">
     <ol class="carousel-indicators">
@@ -35,31 +59,43 @@
 </div>
 @* Line *@
 <div class="text-center">
-    <span><img src="~/images/fire.png" /></span>
+    <span><img src="~/images/fire.png" style="height:40px;" /></span>
     <span><img src="~/images/onsale.png" style="height:40px;" /></span>
-    <span><img src="~/images/fire.png" /></span>
+    <span><img src="~/images/fire.png" style="height:40px;"/></span>
 </div>
 @* card *@
 <div class="container">
-    <div class="row">
+    <div class="image-list row">
         <div class="col-md-3 col-sm-6 col-12 mt-3">
             <div class="card" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale1.jpg">
+                <div class="image-cover">
+                    <button class="btn btn-outline-light" type="button">Buy now</button>
+                </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
             <div class="card" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale2.jpg">
+                <div class="image-cover">
+                    <button class="btn btn-outline-light" type="button">Buy now</button>
+                </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
             <div class="card" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale3.jpg">
+                <div class="image-cover">
+                    <button class="btn btn-outline-light" type="button">Buy now</button>
+                </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
             <div class="card" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale4.jpg">
+                <div class="image-cover">
+                    <button class="btn btn-outline-light" type="button">Buy now</button>
+                </div>
             </div>
         </div>
     </div>
