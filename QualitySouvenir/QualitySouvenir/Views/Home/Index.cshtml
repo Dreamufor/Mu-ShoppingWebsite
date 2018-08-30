@@ -25,6 +25,20 @@
         background: rgba(0, 0, 0, 0.5);
     }
 
+    .rotateLeft {
+        -ms-transform: rotate(-3deg); /* IE 9 */
+        -moz-transform: rotate(-3deg); /* Firefox */
+        -webkit-transform: rotate(-3deg); /* Safari and Chrome */
+        -o-transform: rotate(-3deg); /* Opera */
+    }
+
+    .rotateRight {
+        -ms-transform: rotate(3deg); /* IE 9 */
+        -moz-transform: rotate(3deg); /* Firefox */
+        -webkit-transform: rotate(3deg); /* Safari and Chrome */
+        -o-transform: rotate(3deg); /* Opera */
+    }
+
 </style>
 @* Carousel *@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000" style="margin:0px -15px 10px -15px;">
@@ -58,16 +72,14 @@
     </a>
 </div>
 @* Line *@
-<div class="text-center">
-    <span><img src="~/images/fire.png" style="height:40px;" /></span>
+<div class="text-center mt-2 mb-2">
     <span><img src="~/images/onsale.png" style="height:40px;" /></span>
-    <span><img src="~/images/fire.png" style="height:40px;"/></span>
 </div>
 @* card *@
 <div class="container">
     <div class="image-list row">
         <div class="col-md-3 col-sm-6 col-12 mt-3">
-            <div class="card" style="width: 15rem;">
+            <div class="card rotateRight" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale1.jpg">
                 <div class="image-cover">
                     <button class="btn btn-outline-light" type="button">Buy now</button>
@@ -75,7 +87,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
-            <div class="card" style="width: 15rem;">
+            <div class="card rotateLeft" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale2.jpg">
                 <div class="image-cover">
                     <button class="btn btn-outline-light" type="button">Buy now</button>
@@ -83,7 +95,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
-            <div class="card" style="width: 15rem;">
+            <div class="card rotateRight" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale3.jpg">
                 <div class="image-cover">
                     <button class="btn btn-outline-light" type="button">Buy now</button>
@@ -91,7 +103,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12 mt-3">
-            <div class="card" style="width: 15rem;">
+            <div class="card rotateLeft" style="width: 15rem;">
                 <img class="card-img-top" src="~/images/sale4.jpg">
                 <div class="image-cover">
                     <button class="btn btn-outline-light" type="button">Buy now</button>
