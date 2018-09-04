@@ -1,0 +1,96 @@
+﻿@model IEnumerable<QualitySouvenir.Models.Souvenir>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="container-fluid">
+    <p class="indicateNav shadow-sm" style="margin:1% 7%;"><a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
+    <div class="row" style="margin:2% 6%;">
+        <div class="col-md-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    All Products
+                </div>
+                <ul class="list-group list-group-flush list-unstyled">
+                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
+                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
+                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
+                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="card mb-2" style="width: 13rem;">
+                            <img class="card-img-top" src="">
+                            <div card-body>
+                                <p class="card-text">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>                    
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
