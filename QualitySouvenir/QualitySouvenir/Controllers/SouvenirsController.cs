@@ -28,7 +28,7 @@ namespace QualitySouvenir.Controllers
         {
             //week3 create sorter
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["PriceSortParm"] = sortOrder == "price_desc" ? "price" : "price_desc";
+            ViewData["PriceSortParm"] = sortOrder == "price" ? "price_desc" : "price";
             ViewData["CategorySortParm"] = String.IsNullOrEmpty(sortOrder) ? "category" : "";
             ViewData["SupplierSortParm"] = String.IsNullOrEmpty(sortOrder) ? "supplier" : "";
 

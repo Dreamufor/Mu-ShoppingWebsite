@@ -13266,11 +13266,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Dropbox\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
       "projectName": "QualitySouvenir",
-      "projectPath": "C:\\Users\\Administrator\\Dropbox\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Dropbox\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
