@@ -44,7 +44,7 @@
                 <li class="nav-item ml-3 dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-gift mr-2"></i>Products</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-area="" asp-controller="Souvenirs" asp-action="Index">All Souvenirs</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="Index">All Souvenirs</a>
                         <a class="dropdown-item" href="#">Maori Gifts</a>
                         <a class="dropdown-item" href="#">T-Shirts</a>
                         <a class="dropdown-item" href="#">Mugs</a>
@@ -60,8 +60,18 @@
                 <li class="nav-item ml-3">
                     <a asp-area="" asp-controller="" asp-action="" class="nav-link ml-3"><i class="fas fa-shopping-cart mr-2"></i>Cart</a>
                 </li>
+                <li class="nav-item ml-3 dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-2"></i>Administrator</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-area="" asp-controller="Souvenirs" asp-action="Index">Souvenir</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Suppliers" asp-action="Index">Supplier</a>
+                        <a class="dropdown-item" href="#">   </a>
+                        <a class="dropdown-item" href="#">    </a>
+                    </div>
+                </li>
             </ul>
-            @*@await Html.PartialAsync("_LoginPartial")*@
+            @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="input-group float-right ml-5" style="width:200px;">
             <input type="text" class="form-control" placeholder="Search">

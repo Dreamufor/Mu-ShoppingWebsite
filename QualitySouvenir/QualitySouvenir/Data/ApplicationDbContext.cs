@@ -25,7 +25,6 @@ namespace QualitySouvenir.Data
 
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,7 +43,6 @@ namespace QualitySouvenir.Data
 
             modelBuilder.Entity<Order>().ToTable("Order");
 
-            modelBuilder.Entity<Customer>().ToTable("Customer");
         }
     }
 }

@@ -1,96 +1,117 @@
-﻿@model IEnumerable<QualitySouvenir.Models.Souvenir>
+﻿@*@model IEnumerable<QualitySouvenir.Models.Souvenir>*@
+@model PaginatedList<QualitySouvenir.Models.Souvenir>
 
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Index";
 }
 
 <div class="container-fluid">
-    <p class="indicateNav shadow-sm" style="margin:1% 7%;"><a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
-    <div class="row" style="margin:2% 6%;">
-        <div class="col-md-2">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    All Products
-                </div>
-                <ul class="list-group list-group-flush list-unstyled">
-                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
-                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
-                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
-                    <li class="list-group-item"><a class="alert-light" href="#">content</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-8">
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    <div class="col-md-3">
-                        <div class="card mb-2" style="width: 13rem;">
-                            <img class="card-img-top" src="">
-                            <div card-body>
-                                <p class="card-text">
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </p>
-                            </div>
-                        </div>
+        <div class="col-md-10">
+            <h2>Product List</h2>
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <form asp-action="Index" method="get">
+                <div class="input-group float-right mb-2" style="width:400px;">
+                    <input type="text" class="form-control" placeholder="Search products" name="searchString"
+                           value="@ViewData["CurrentFilter"]">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
                     </div>
+                    <a asp-action="Index" class="alert-light font-weight-bold ml-3 mt-1">Back to Full List</a>
+                </div>
+            </form>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Name
+                            </a>
+                        </th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Price
+                            </a>
+                        </th>
+                        <th style="width:300px;">
+                            Description
+                        </th>
+                        <th style="width:200px;">
+                            Image
+                        </th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["CategorySortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Category
+                            </a>
+                        </th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["SupplierSortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Supplier
+                            </a>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Image)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Supplier.Name)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center">
+                @*previous and next*@
+                @{
+                    var preVDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
-                </div>                    
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageIndex -1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="ml-3 btn btn-outline-secondary @nextDisabled" style="width:100px;">
+                    Next
+                </a>
+            </div>
+
         </div>
         <div class="col-md-1"></div>
     </div>
-
 </div>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image)
-                </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplier)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

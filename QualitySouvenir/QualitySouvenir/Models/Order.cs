@@ -29,7 +29,6 @@ namespace QualitySouvenir.Models
 
         public List<OrderItem> OrderItems { get; set; }
 
-        public Customer Customers { get; set; }
 
     }
 }
