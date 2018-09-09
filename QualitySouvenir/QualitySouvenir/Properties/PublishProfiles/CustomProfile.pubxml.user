@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftp://dochyper.unitec.ac.nz/asp_application1/</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>09/07/2018 22:36:39</publishTime>
+    </File>
+    <File Include="bundleconfig.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="QualitySouvenir.deps.json">
+      <publishTime>09/07/2018 22:46:27</publishTime>
+    </File>
+    <File Include="QualitySouvenir.dll">
+      <publishTime>09/07/2018 22:41:02</publishTime>
+    </File>
+    <File Include="QualitySouvenir.pdb">
+      <publishTime>09/07/2018 22:41:02</publishTime>
+    </File>
+    <File Include="QualitySouvenir.PrecompiledViews.dll">
+      <publishTime>09/07/2018 22:41:17</publishTime>
+    </File>
+    <File Include="QualitySouvenir.PrecompiledViews.pdb">
+      <publishTime>09/07/2018 22:41:17</publishTime>
+    </File>
+    <File Include="QualitySouvenir.runtimeconfig.json">
+      <publishTime>09/07/2018 22:46:27</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>09/07/2018 22:46:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.min.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/aboutpage.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/join-us.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/onsale.png">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/sale1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/sale2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/sale3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/sale4.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/showcase.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/slide-1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/slide-2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/slide-3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/slide-4.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/somethinggood.png">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/main/title.png">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/coaster1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/coaster2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/coaters3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/maori-mix-draw-bags.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/nzbolster.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/ornament.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/rimu-new-zealand-native-bird-fridge-magnet.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/traditional-maori-papahou-treasure-box-paua-shell-lid.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/wall-art1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/wall-art2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/homeandliving/wood-ornament.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/kotiate-maori.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/maori-dolls.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/maori-gift-box.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/maori-hook.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/maori-mask.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/maori-necklace.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/patu-maori.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/patu-war-club1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/patu-war-club2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/patu-war-club3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/pendants-earringgs.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/wall-arts-1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/wall-arts-2.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/maorigifts/wall-arts-3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/anchored-direction-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/bride-and-groom-skeletons-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/dashing-through-the-no-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/deep-space-diver-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/dr-caffeine-elixir-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/dreamscape-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/island-dream-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/just-for-you-skeletons-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/just-married-skeletons-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/kiwi-az-bro-kiwiana-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/kiwi-to-my-heart-kiwiana-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/mystery-island-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/mugs/the-island-mug.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts1.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts10.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts11.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts12.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts2.png">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts3.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts4.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts5.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts6.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts7.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts8.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/products/tshirts/nztshirts9.jpg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/.bower.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/npm.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/.bower.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/.bower.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/.bower.json">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>09/03/2018 18:42:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
