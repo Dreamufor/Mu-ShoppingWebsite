@@ -14,11 +14,11 @@
                     Categories
                 </div>
                 <ul class="list-group list-group-flush">                 
-                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Maori Gifts</a></li>
-                    <li class="list-group-item"><a class="alert-light alert-link" href="#">T-Shirts</a></li>
-                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Mugs</a></li>
-                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Home & Living</a></li>
-                    <li class="list-group-item"><a class="alert-light alert-link" href="#">On Sale</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link font-weight-normal" href="#">Maori Gifts</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link font-weight-normal" href="#">T-Shirts</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link font-weight-normal" href="#">Mugs</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link font-weight-normal" href="#">Home & Living</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link font-weight-normal" href="#">On Sale</a></li>
                 </ul>
             </div>
         </div>
@@ -32,14 +32,14 @@
                         <div class="input-group-append">
                             <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
                         </div>
-                        <a asp-action="Index" class="alert-light alert-link ml-4 mt-1">All Products</a>
+                        <a asp-action="Index" class="alert-light alert-link font-weight-normal ml-4 mt-1">All Products</a>
                         <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
-                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link ml-4 mt-1">
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Name
                             <i class="fas fa-sort"></i>
                         </a>
                         <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
-                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link ml-4 mt-1">
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Price
                             <i class="fas fa-sort"></i>
                         </a>
@@ -53,8 +53,8 @@
                             var imgUrl = @Href(item.Image);
                             var errImg = @Href("/images/main/showcase.jpg");
                             
-                            <div class="col-md-3">
-                                <div class="card ml-3 mb-4" style="height:335px;">
+                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                                <div class="card ml-3 pb-1" style="height:355px;width:250px;">
                                     <img class="card-img-top" style="width: 100%; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                                     <div class="card-body">
                                         <div style="width:270px; text-overflow: ellipsis;">
@@ -62,7 +62,7 @@
                                         </div>
                                         <br />
                                         <span class="font-weight-bold" style="color:orange">NZD $@Html.DisplayFor(modelItem => item.Price)</span>
-                                        <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@item.ID" class="alert-light alert-link float-right"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
+                                        <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@item.ID" class="alert-light alert-link float-right" title="Add to cart"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
                                     </div>
                                 </div>
                             </div>
