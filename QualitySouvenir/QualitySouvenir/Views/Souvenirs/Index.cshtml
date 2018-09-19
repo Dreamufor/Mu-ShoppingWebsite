@@ -28,6 +28,10 @@
                 <thead>
                     <tr>
                         <th>
+                            Image
+                        </th>
+
+                        <th>
                             <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
                                asp-route-currentFilter="@ViewData["CurrentFilter"]">
                                 Name
@@ -41,9 +45,6 @@
                         </th>
                         <th style="width:300px;">
                             Description
-                        </th>
-                        <th style="width:200px;">
-                            Image
                         </th>
                         <th>
                             <a asp-action="Index" asp-route-sortOrder="@ViewData["CategorySortParm"]"
@@ -63,31 +64,34 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" />                                
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Category.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Supplier.Name)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                            </td>
-                        </tr>
+                        var imgUrl = @Href(item.Image);
+                        var errImg = @Href("/images/main/showcase.jpg");
+                    <tr>
+                        <td>
+                            <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Supplier.Name)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

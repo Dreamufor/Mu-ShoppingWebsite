@@ -33,7 +33,9 @@ namespace QualitySouvenir.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var category = await _context.Categories.
+                Include(c => c.Souvenirs)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (category == null)
             {
@@ -56,11 +58,21 @@ namespace QualitySouvenir.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Description")] Category category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(category);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //log the error
+                ModelState.AddModelError("", "Unable to save changes." +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator");
             }
             return View(category);
         }
@@ -99,6 +111,7 @@ namespace QualitySouvenir.Controllers
                 {
                     _context.Update(category);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -108,16 +121,17 @@ namespace QualitySouvenir.Controllers
                     }
                     else
                     {
+                        ModelState.AddModelError("", "Fail to Update the Category item, try again later.");
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //  return RedirectToAction(nameof(Index));
             }
             return View(category);
         }
 
         // GET: Categories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, bool? saveChangeError = false)
         {
             if (id == null)
             {
@@ -125,10 +139,17 @@ namespace QualitySouvenir.Controllers
             }
 
             var category = await _context.Categories
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (category == null)
             {
                 return NotFound();
+            }
+
+            if (saveChangeError.GetValueOrDefault())
+            {
+                ViewData["ErrorMeassage"] = "Delete faild. Try again, and if the problem persists " + "see your system administrator";
+
             }
 
             return View(category);
@@ -139,10 +160,26 @@ namespace QualitySouvenir.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Categories.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var category = await _context.Categories
+               .AsNoTracking()
+               .SingleOrDefaultAsync(m => m.ID == id);
+
+            if (category == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.Categories.Remove(category);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException)
+            {
+                ModelState.AddModelError("", "Fail to delete the category item, try again later.");
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangeError = true });
+            }
         }
 
         private bool CategoryExists(int id)

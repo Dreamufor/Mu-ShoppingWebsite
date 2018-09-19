@@ -13,7 +13,6 @@ namespace QualitySouvenir.Models
 
         [Required]
         [StringLength(30)]
-        //[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         public string Name { get; set; }
 
         [Required]

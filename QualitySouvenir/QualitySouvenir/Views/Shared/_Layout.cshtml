@@ -31,20 +31,20 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><i class="fa fa-gift ml-3" style="font-size:50px;"></i></a>
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><img src="~/images/main/title.png" class="img-fluid" style="height:75px;" /></a>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand align-item-center"><img src="/images/main/title.png" class="img-fluid" style="height:75px;" /></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="navbar-collapse">
-            <ul class="mr-auto navbar-nav ml-5">
+            <ul class="mr-auto navbar-nav ml-1">
                 <li class="nav-item ml-3">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item ml-3 dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-gift mr-2"></i>Products</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="Index">All Souvenirs</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Index">All Souvenirs</a>
                         <a class="dropdown-item" href="#">Maori Gifts</a>
                         <a class="dropdown-item" href="#">T-Shirts</a>
                         <a class="dropdown-item" href="#">Mugs</a>
@@ -60,16 +60,17 @@
                 <li class="nav-item ml-3">
                     <a asp-area="" asp-controller="" asp-action="" class="nav-link ml-3"><i class="fas fa-shopping-cart mr-2"></i>Cart</a>
                 </li>
-                <li class="nav-item ml-3 dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-2"></i>Administrator</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-area="" asp-controller="Souvenirs" asp-action="Index">Souvenir</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Suppliers" asp-action="Index">Supplier</a>
-                        <a class="dropdown-item" href="#">   </a>
-                        <a class="dropdown-item" href="#">    </a>
-                    </div>
-                </li>
+                @if (User.IsInRole("Admin")) { 
+                    <li class="nav-item ml-3 dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-2"></i>Administrator</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Souvenirs" asp-action="Index">Souvenir</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Suppliers" asp-action="Index">Supplier</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="AdminApplicationUsers" asp-action="Index">Members</a>
+                        </div>
+                    </li>
+                }
             </ul>
             @await Html.PartialAsync("_LoginPartial")
         </div>
@@ -116,7 +117,7 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <i class="fa fa-gift" style="font-size:75px;color:black;"></i><br />
-                        <img src="~/images/main/title.png" style="width:160px;" />
+                        <img src="/images/main/title.png" style="width:160px;" />
                     </div>
                 </div>
             </div>

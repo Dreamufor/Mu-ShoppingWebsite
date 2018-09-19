@@ -12,13 +12,13 @@
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
 
-                <div class="input-group mb-3">
+                @*<div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                     </div>
-                    <input class="form-control" type="text" placeholder="User name" />
-                    <span class="text-danger"></span>
-                </div>
+                    <input asp-for="Username" class="form-control" type="text" placeholder="User name" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>*@
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -32,8 +32,16 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
                     </div>
-                    <input class="form-control" type="text" placeholder="Phone number" />
-                    <span class="text-danger"></span>
+                    <input asp-for="PhoneNumber" class="form-control" type="text" placeholder="Phone number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-home"></i></span>
+                    </div>
+                    <input asp-for="Address" class="form-control" placeholder="Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
 
                 <div class="input-group mb-3">
@@ -52,13 +60,13 @@
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-group text-center mb-5">
-                    <button type="button" class="btn btn-info" style="width:100%;">Create your account</button>
+                    <button type="submit" class="btn btn-info" style="width:100%;">Create your account</button>
                 </div>
             </form>
         </div>
         <div class="col-md-8">
             <div class="card align-item-center" style="padding:0.5%;">
-                <img src="~/images/main/somethinggood.png" alt="join us" class="img-fluid"/>
+                <img src="/images/main/somethinggood.png" alt="join us" class="img-fluid"/>
             </div>
         </div>
     </div>

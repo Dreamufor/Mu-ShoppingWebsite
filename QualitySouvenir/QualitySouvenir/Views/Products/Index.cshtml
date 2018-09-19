@@ -1,0 +1,111 @@
+﻿@*@model IEnumerable<QualitySouvenir.Models.Souvenir>*@
+@model PaginatedList<QualitySouvenir.Models.Souvenir>
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<div class="container-fluid">
+    <p class="indicateNav shadow-sm" style="margin:1% 7%;"><a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="card mt-5" style="width: 18rem;">
+                <div class="card-header">
+                    Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Maori Gifts</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link" href="#">T-Shirts</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Mugs</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link" href="#">Home & Living</a></li>
+                    <li class="list-group-item"><a class="alert-light alert-link" href="#">On Sale</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <form asp-action="Index" method="get">
+                <div class="input-group float-right mb-2" style="width:400px;">
+                    <input type="text" class="form-control" placeholder="Search products" name="searchString"
+                           value="@ViewData["CurrentFilter"]">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <a asp-action="Index" class="alert-light font-weight-bold ml-3 mt-1">Back to Full List</a>
+                </div>
+            </form>
+            <div class="row"></div>
+
+
+
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Image
+                        </th>
+
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Name
+                            </a>
+                        </th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                Price
+                            </a>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var imgUrl = @Href(item.Image);
+                        var errImg = @Href("/images/main/showcase.jpg");
+                        <tr>
+                            <td>
+                                <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center">
+                @*previous and next*@
+                @{
+                    var preVDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                }
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageIndex -1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="ml-3 btn btn-outline-secondary @nextDisabled" style="width:100px;">
+                    Next
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

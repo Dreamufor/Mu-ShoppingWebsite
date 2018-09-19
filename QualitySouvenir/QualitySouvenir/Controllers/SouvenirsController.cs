@@ -7,16 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QualitySouvenir.Data;
 using QualitySouvenir.Models;
+using System.Net.Http.Headers; //Week 6
+using Microsoft.AspNetCore.Hosting; //Week 6
+using Microsoft.AspNetCore.Http; //Week 6
+using System.IO; //Week 6
+
 
 namespace QualitySouvenir.Controllers
 {
     public class SouvenirsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _hostingEnv;//week 6
 
-        public SouvenirsController(ApplicationDbContext context)
+        public SouvenirsController(ApplicationDbContext context, IHostingEnvironment hEnv)
         {
             _context = context;
+            _hostingEnv = hEnv;//week 6
         }
 
         // GET: Souvenirs
@@ -113,8 +120,34 @@ namespace QualitySouvenir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Price,Description,SupplierID,CategoryID,Image")] Souvenir souvenir)
+        public async Task<IActionResult> Create([Bind("ID,Name,Price,Description,SupplierID,CategoryID,Image")] Souvenir souvenir, IList<IFormFile> _files)
         {
+            var relativeName = "";
+            var fileName = "";
+
+            if (_files.Count < 1)
+            {
+                relativeName = "/images/Default.jpg";
+            }
+            else
+            {
+                foreach (var file in _files)
+                {
+                    fileName = ContentDispositionHeaderValue
+                                      .Parse(file.ContentDisposition)
+                                      .FileName
+                                      .Trim('"');
+                    //Path for localhost
+                    relativeName = "/images/products/" + DateTime.Now.ToString("ddMMyyyy-HHmmssffffff") + fileName;
+
+                    using (FileStream fs = System.IO.File.Create(_hostingEnv.WebRootPath + relativeName))
+                    {
+                        await file.CopyToAsync(fs);
+                        fs.Flush();
+                    }
+                }
+            }
+            souvenir.Image = relativeName;
             //Week 2
             try
             {
@@ -127,7 +160,10 @@ namespace QualitySouvenir.Controllers
             }
             catch (DbUpdateException /* ex */)
             {
-                ModelState.AddModelError("", "Unable to save changes." + "Try again, and if the problem persists " + "see your system administrator");
+                //log the error
+                ModelState.AddModelError("", "Unable to save changes." + 
+                    "Try again, and if the problem persists " + 
+                    "see your system administrator");
             }
 
             ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name", souvenir.CategoryID);

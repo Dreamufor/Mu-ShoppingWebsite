@@ -34,6 +34,8 @@ namespace QualitySouvenir.Controllers
             }
 
             var supplier = await _context.Suppliers
+                .Include(c => c.Souvenirs)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (supplier == null)
             {
@@ -56,11 +58,21 @@ namespace QualitySouvenir.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,PhoneNumber,Email")] Supplier supplier)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(supplier);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(supplier);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //log the error
+                ModelState.AddModelError("", "Unable to save changes." +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator");
             }
             return View(supplier);
         }
@@ -99,6 +111,7 @@ namespace QualitySouvenir.Controllers
                 {
                     _context.Update(supplier);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -108,16 +121,17 @@ namespace QualitySouvenir.Controllers
                     }
                     else
                     {
+                        ModelState.AddModelError("", "Fail to update the Supplier item, try again later.");
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //  return RedirectToAction(nameof(Index));
             }
             return View(supplier);
         }
 
         // GET: Suppliers/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, bool? saveChangeError = false)
         {
             if (id == null)
             {
@@ -125,10 +139,16 @@ namespace QualitySouvenir.Controllers
             }
 
             var supplier = await _context.Suppliers
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (supplier == null)
             {
                 return NotFound();
+            }
+
+            if (saveChangeError.GetValueOrDefault())
+            {
+                ViewData["ErrorMeassage"] = "Delete faild. Try again, and if the problem persists " + "see your system administrator";
             }
 
             return View(supplier);
@@ -139,10 +159,26 @@ namespace QualitySouvenir.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var supplier = await _context.Suppliers.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Suppliers.Remove(supplier);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var supplier = await _context.Suppliers
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.ID == id);
+
+            if (supplier == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.Suppliers.Remove(supplier);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException)
+            {
+                ModelState.AddModelError("", "Fail to delete the Supplier item, try again later.");
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangeError = true });
+            }
         }
 
         private bool SupplierExists(int id)
