@@ -82,7 +82,7 @@ namespace QualitySouvenir.Controllers
                     souvenirs = souvenirs.OrderBy(s => s.Name);
                     break;
             }
-            int pageSize = 5;
+            int pageSize = 8;
             return View(await PaginatedList<Souvenir>.CreatAsync(souvenirs.AsNoTracking(), page ?? 1, pageSize));
         }
 

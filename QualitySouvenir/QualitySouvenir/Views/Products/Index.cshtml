@@ -1,8 +1,7 @@
-﻿@*@model IEnumerable<QualitySouvenir.Models.Souvenir>*@
-@model PaginatedList<QualitySouvenir.Models.Souvenir>
+﻿@model PaginatedList<QualitySouvenir.Models.Souvenir>
 
 @{
-    ViewData["Title"] = "All Products";
+    ViewData["Title"] = "Products";
 }
 
 <div class="container-fluid">
@@ -10,11 +9,11 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-2">
-            <div class="card mt-5" style="width: 18rem;">
+            <div class="card mt-5">
                 <div class="card-header">
                     Categories
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush">                 
                     <li class="list-group-item"><a class="alert-light alert-link" href="#">Maori Gifts</a></li>
                     <li class="list-group-item"><a class="alert-light alert-link" href="#">T-Shirts</a></li>
                     <li class="list-group-item"><a class="alert-light alert-link" href="#">Mugs</a></li>
@@ -24,67 +23,99 @@
             </div>
         </div>
         <div class="col-md-8">
-            <form asp-action="Index" method="get">
-                <div class="input-group float-right mb-2" style="width:400px;">
-                    <input type="text" class="form-control" placeholder="Search products" name="searchString"
-                           value="@ViewData["CurrentFilter"]">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
+
+            <div class="float-right">
+                <form asp-action="Index" method="get">
+                    <div class="input-group mb-2" style="width:500px;">
+                        <input type="text" class="form-control" placeholder="Search products" name="searchString"
+                               value="@ViewData["CurrentFilter"]">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
+                        </div>
+                        <a asp-action="Index" class="alert-light alert-link ml-4 mt-1">All Products</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link ml-4 mt-1">
+                            Name
+                            <i class="fas fa-sort"></i>
+                        </a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link ml-4 mt-1">
+                            Price
+                            <i class="fas fa-sort"></i>
+                        </a>
                     </div>
-                    <a asp-action="Index" class="alert-light font-weight-bold ml-3 mt-1">Back to Full List</a>
-                </div>
-            </form>
-            <div class="row"></div>
+                </form>
+            </div><br />
+            <hr class="mt-4 ml-4"/>
+            <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            var imgUrl = @Href(item.Image);
+                            var errImg = @Href("/images/main/showcase.jpg");
+                            
+                            <div class="col-md-3">
+                                <div class="card ml-3 mb-4" style="height:335px;">
+                                    <img class="card-img-top" style="width: 100%; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                                    <div class="card-body">
+                                        <div style="width:270px; text-overflow: ellipsis;">
+                                            <a asp-action="Details" asp-route-id="@item.ID" class="alert-link alert-light">@Html.DisplayFor(modelItem => item.Name)</a>                                           
+                                        </div>
+                                        <br />
+                                        <span class="font-weight-bold" style="color:orange">NZD $@Html.DisplayFor(modelItem => item.Price)</span>
+                                        <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@item.ID" class="alert-light alert-link float-right"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+            </div>
 
 
+            @*<table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
 
-
-
-            <table class="table">
-                <thead>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            Name
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            Price
+                        </a>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var imgUrl = @Href(item.Image);
+                    var errImg = @Href("/images/main/showcase.jpg");
                     <tr>
-                        <th>
-                            Image
-                        </th>
+                        <td>
+                            <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                        </td>
 
-                        <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
-                                Name
-                            </a>
-                        </th>
-                        <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
-                                Price
-                            </a>
-                        </th>
-                        <th></th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        var imgUrl = @Href(item.Image);
-                        var errImg = @Href("/images/main/showcase.jpg");
-                        <tr>
-                            <td>
-                                <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
-                            </td>
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                }
+            </tbody>
+        </table>*@
             <div class="text-center">
                 @*previous and next*@
                 @{
