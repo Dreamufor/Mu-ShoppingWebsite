@@ -27,6 +27,8 @@ namespace QualitySouvenir.Data
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
+        public DbSet<CartItem> CartItems { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,6 +46,10 @@ namespace QualitySouvenir.Data
             modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
 
             modelBuilder.Entity<Order>().ToTable("Order");
+
+            modelBuilder.Entity<CartItem>().ToTable("CartItem");
+
+            modelBuilder.Entity<OrderItem>().HasOne(p => p.Order).WithMany(o => o.OrderItems).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

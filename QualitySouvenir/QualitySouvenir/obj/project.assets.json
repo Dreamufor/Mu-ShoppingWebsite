@@ -13621,23 +13621,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Users\\zhangm67\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "projectUniqueName": "C:\\Users\\zhangm67\\Desktop\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
       "projectName": "QualitySouvenir",
-      "projectPath": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Dropbox\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir\\obj\\",
+      "projectPath": "C:\\Users\\zhangm67\\Desktop\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "packagesPath": "C:\\Users\\zhangm67\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zhangm67\\Desktop\\Mu-ShoppingWebsite-master\\Mu-ShoppingWebsite-master\\QualitySouvenir\\QualitySouvenir\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zhangm67\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13663,26 +13666,26 @@
         "dependencies": {
           "MailKit": {
             "target": "Package",
-            "version": "[2.0.6, )"
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "[2.0.9, )"
+            "version": "2.0.6"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.3, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.0.0, )",
-            "autoReferenced": true
+            "version": "2.0.3"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.4, )"
+            "version": "2.0.4"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "2.0.0",
+            "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "2.0.9"
           }
         },
         "imports": [

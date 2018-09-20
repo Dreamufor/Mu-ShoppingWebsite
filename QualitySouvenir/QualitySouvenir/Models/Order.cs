@@ -29,6 +29,9 @@ namespace QualitySouvenir.Models
 
         public List<OrderItem> OrderItems { get; set; }
 
+        public ApplicationUser User { get; set; }
+
+
 
     }
 }

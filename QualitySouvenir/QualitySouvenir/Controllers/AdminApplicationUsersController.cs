@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;//week 7
+using Microsoft.AspNetCore.Authorization;//week 7
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;//week 7
 using QualitySouvenir.Models;
 using QualitySouvenir.Data;
 
@@ -21,7 +21,7 @@ namespace QualitySouvenir.Controllers
         public AdminApplicationUsersController(ApplicationDbContext context, IServiceProvider serviceProvider)
         {
             _context = context;
-            _userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            _userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();//week 7
         }
 
         // GET: AdminApplicationUsers
@@ -49,7 +49,7 @@ namespace QualitySouvenir.Controllers
             {
                 return NotFound();
             }
-            //member.Enabled = !member.Enabled;
+            member.Enabled = !member.Enabled;
             _context.Update(member);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

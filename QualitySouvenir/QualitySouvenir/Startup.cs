@@ -104,8 +104,9 @@ namespace QualitySouvenir
                 {
                     UserName = Configuration.GetSection("UserSettings")["UserEmail"],
                     Email = Configuration.GetSection("UserSettings")["UserEmail"],
-                    Address = "Addmin Address"
-                    //,Enabled = true
+                    EmailConfirmed = true,
+                    Address = "Admin Address",
+                    Enabled = true
                 };
                 var _userManager = serviceScope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
                 var test = _userManager.FindByEmailAsync(Configuration.GetSection("UserSettings")["UserEmail"]);

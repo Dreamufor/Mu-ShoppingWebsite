@@ -34,3 +34,15 @@ C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debu
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.deps.json
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.json
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.dev.json
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.dll
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.pdb
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csproj.CoreCompileInputs.cache
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfoInputs.cache
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfo.cs
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb
+C:\Users\zhangm67\Desktop\Mu-ShoppingWebsite-master\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojResolveAssemblyReference.cache
