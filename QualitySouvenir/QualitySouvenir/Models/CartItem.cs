@@ -11,7 +11,8 @@ namespace QualitySouvenir.Models
         [Key]
         public int ID { get; set; }
 
-        public string CartID { get; set; }
+        public string ShoppingCartID { get; set; }
+
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }

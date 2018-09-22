@@ -51,5 +51,8 @@ namespace QualitySouvenir.Data
 
             modelBuilder.Entity<OrderItem>().HasOne(p => p.Order).WithMany(o => o.OrderItems).OnDelete(DeleteBehavior.Cascade);
         }
+
+
+        public DbSet<QualitySouvenir.Models.ShoppingCart> ShoppingCart { get; set; }
     }
 }

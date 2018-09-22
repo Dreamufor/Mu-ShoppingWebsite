@@ -12,7 +12,7 @@ namespace QualitySouvenir.Models
         public bool Enabled { get; set; }
 
         public String Address { get; set; }
-            
 
+     
     }
 }

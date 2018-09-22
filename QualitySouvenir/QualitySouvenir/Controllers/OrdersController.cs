@@ -9,11 +9,14 @@ using QualitySouvenir.Data;
 using QualitySouvenir.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QualitySouvenir.Controllers
 {
+    [Authorize(Roles = "Admin,Member")]
     public class OrdersController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;//week 8
 
@@ -24,16 +27,16 @@ namespace QualitySouvenir.Controllers
 
         }
 
-        // GET: Orders
+        // GET: Orders 
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Orders.Include(i => i.User).AsNoTracking().ToListAsync());//week 8
         }
 
-        // GET: Orders/Details/5
-       
-
         // GET: Orders/Create
+        [Authorize(Roles = "Member")]
         public IActionResult Create()
         {
             return View();
@@ -44,7 +47,8 @@ namespace QualitySouvenir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("City,Country,FirstName,LastName,Phone,PostalCode,State")] Order order)
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> Create([Bind("FirstName, LastName, City, State, PostalCode, Country, Phone, Status, GST, GrandTotal, SubTotal, Date")] Order order)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
 
@@ -64,9 +68,14 @@ namespace QualitySouvenir.Controllers
 
                 }
 
+                order.Status = Status.waitting;
                 order.User = user;
-                order.Date = DateTime.Today;
+                order.Date = DateTime.Today;           
                 order.GrandTotal = ShoppingCart.GetCart(this.HttpContext).GetTotal(_context);
+                order.GST = ShoppingCart.GetCart(this.HttpContext).GetGST(_context);
+                order.SubTotal = ShoppingCart.GetCart(this.HttpContext).GetSubTotal(_context);
+
+
                 order.OrderItems = details;
                 _context.SaveChanges();
 
@@ -113,13 +122,8 @@ namespace QualitySouvenir.Controllers
         }
 
 
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
         // GET: Orders/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,6 +148,7 @@ namespace QualitySouvenir.Controllers
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var order = await _context.Orders.SingleOrDefaultAsync(m => m.ID == id);

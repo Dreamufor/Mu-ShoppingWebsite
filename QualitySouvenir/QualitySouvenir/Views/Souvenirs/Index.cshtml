@@ -2,7 +2,7 @@
 @model PaginatedList<QualitySouvenir.Models.Souvenir>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Souvenir";
 }
 
 <div class="container-fluid">
@@ -68,7 +68,7 @@
                         var errImg = @Href("/images/main/showcase.jpg");
                     <tr>
                         <td>
-                            <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                            <img style="width: 200px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                         </td>
 
                         <td>
@@ -102,12 +102,14 @@
                     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
                 <a asp-action="Index"
+                   asp-route-sortOrder ="@ViewData["CurrentSort"]"
                    asp-route-page="@(Model.PageIndex -1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
                     Previous
                 </a>
                 <a asp-action="Index"
+                   asp-route-sortOrder ="@ViewData["CurrentSort"]"
                    asp-route-page="@(Model.PageIndex + 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="ml-3 btn btn-outline-secondary @nextDisabled" style="width:100px;">

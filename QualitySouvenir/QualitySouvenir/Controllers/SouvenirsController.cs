@@ -11,10 +11,12 @@ using System.Net.Http.Headers; //Week 6
 using Microsoft.AspNetCore.Hosting; //Week 6
 using Microsoft.AspNetCore.Http; //Week 6
 using System.IO; //Week 6
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace QualitySouvenir.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SouvenirsController : Controller
     {
         private readonly ApplicationDbContext _context;

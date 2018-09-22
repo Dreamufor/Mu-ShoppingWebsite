@@ -184,6 +184,28 @@ namespace QualitySouvenir.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("QualitySouvenir.Models.CartItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<string>("ShoppingCartID");
+
+                    b.Property<int?>("SouvenirID");
+
+                    b.Property<decimal>("UnitPrice");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SouvenirID");
+
+                    b.ToTable("CartItem");
+                });
+
             modelBuilder.Entity("QualitySouvenir.Models.Category", b =>
                 {
                     b.Property<int>("ID")
@@ -205,17 +227,45 @@ namespace QualitySouvenir.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Country");
+
                     b.Property<DateTime>("Date");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<decimal>("GST");
 
                     b.Property<decimal>("GrandTotal");
 
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<string>("State");
+
                     b.Property<int>("Status");
 
                     b.Property<decimal>("SubTotal");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Order");
                 });
@@ -231,6 +281,8 @@ namespace QualitySouvenir.Data.Migrations
 
                     b.Property<int?>("SouvenirID");
 
+                    b.Property<decimal>("UnitPrice");
+
                     b.HasKey("ID");
 
                     b.HasIndex("OrderID");
@@ -238,6 +290,16 @@ namespace QualitySouvenir.Data.Migrations
                     b.HasIndex("SouvenirID");
 
                     b.ToTable("OrderItem");
+                });
+
+            modelBuilder.Entity("QualitySouvenir.Models.ShoppingCart", b =>
+                {
+                    b.Property<string>("ShoppingCartId")
+                        .ValueGeneratedOnAdd();
+
+                    b.HasKey("ShoppingCartId");
+
+                    b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("QualitySouvenir.Models.Souvenir", b =>
@@ -255,7 +317,7 @@ namespace QualitySouvenir.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<double>("Price");
+                    b.Property<decimal>("Price");
 
                     b.Property<int>("SupplierID");
 
@@ -333,11 +395,26 @@ namespace QualitySouvenir.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("QualitySouvenir.Models.CartItem", b =>
+                {
+                    b.HasOne("QualitySouvenir.Models.Souvenir", "Souvenir")
+                        .WithMany()
+                        .HasForeignKey("SouvenirID");
+                });
+
+            modelBuilder.Entity("QualitySouvenir.Models.Order", b =>
+                {
+                    b.HasOne("QualitySouvenir.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("QualitySouvenir.Models.OrderItem", b =>
                 {
                     b.HasOne("QualitySouvenir.Models.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderID");
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("QualitySouvenir.Models.Souvenir", "Souvenir")
                         .WithMany()

@@ -7,11 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QualitySouvenir.Data;
 using QualitySouvenir.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QualitySouvenir.Controllers
 {
+    [AllowAnonymous]
+    [Authorize(Roles = "Member")]
     public class ProductsController : Controller
     {
+       
         private readonly ApplicationDbContext _context;
 
         public ProductsController(ApplicationDbContext context)
@@ -24,13 +28,14 @@ namespace QualitySouvenir.Controllers
             string sortOrder,
             string searchString,
             string currentFilter,
-            int? page)
+            string minPrice,
+            string maxPrice,
+            int? page,
+            int? categoryId)
         {
             //week3 create sorter
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["PriceSortParm"] = sortOrder == "price" ? "price_desc" : "price";
-            ViewData["CategorySortParm"] = String.IsNullOrEmpty(sortOrder) ? "category" : "";
-            ViewData["SupplierSortParm"] = String.IsNullOrEmpty(sortOrder) ? "supplier" : "";
 
             //week3 add paging
             ViewData["CurrentSort"] = sortOrder;
@@ -46,7 +51,8 @@ namespace QualitySouvenir.Controllers
 
             //week3 add search 
             ViewData["CurrentFilter"] = searchString;
-            var applicationDbContext = _context.Souvenirs.Include(s => s.Category).Include(s => s.Supplier);
+   
+            var applicationDbContext = _context.Souvenirs;
             var souvenirs = from s in applicationDbContext
                             select s;
             if (!String.IsNullOrEmpty(searchString))
@@ -54,6 +60,18 @@ namespace QualitySouvenir.Controllers
                 souvenirs = souvenirs.Where(s => s.Name.Contains(searchString)
                                            || s.Description.Contains(searchString));
             }
+            ViewData["MinPrice"] = minPrice;
+            ViewData["MaxPrice"] = maxPrice;
+            if (!(String.IsNullOrEmpty(minPrice)))
+            {
+                souvenirs = souvenirs.Where(s => s.Price >= Convert.ToDecimal(minPrice));
+            }
+
+            if (!(String.IsNullOrEmpty(maxPrice)))
+            {
+                souvenirs = souvenirs.Where(s => s.Price <= Convert.ToDecimal(maxPrice));
+            }
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -65,17 +83,22 @@ namespace QualitySouvenir.Controllers
                 case "price_desc":
                     souvenirs = souvenirs.OrderByDescending(s => s.Price);
                     break;
-                case "category":
-                    souvenirs = souvenirs.OrderBy(s => s.Category);
-                    break;
-                case "supplier":
-                    souvenirs = souvenirs.OrderBy(s => s.Supplier);
-                    break;
                 default:
                     souvenirs = souvenirs.OrderBy(s => s.Name);
                     break;
             }
             int pageSize = 8;
+
+            if (categoryId != null)
+            {
+                souvenirs = souvenirs.Where(c => c.CategoryID == categoryId);
+
+            }
+
+            var categories = _context.Categories.ToList();
+            ViewData["Categories"] = categories;
+
+
             return View(await PaginatedList<Souvenir>.CreatAsync(souvenirs.AsNoTracking(), page ?? 1, pageSize));
         }
 
@@ -88,8 +111,7 @@ namespace QualitySouvenir.Controllers
             }
 
             var souvenir = await _context.Souvenirs
-                .Include(s => s.Category)
-                .Include(s => s.Supplier)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (souvenir == null)
             {

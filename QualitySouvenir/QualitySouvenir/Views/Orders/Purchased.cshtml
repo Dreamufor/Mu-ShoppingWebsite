@@ -4,91 +4,97 @@
     ViewData["Title"] = "Purchased";
 }
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2><span class="glyphicon glyphicon-saved"></span>Thank you For Your Purchase!</h2>
+            <div>
+                <h4>The following order will be dispatched as per the details below.</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.User.Email)</dt>
+                    <dd>@Html.DisplayFor(model => model.User.Email)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.User.Address)</dt>
+                    <dd>@Html.DisplayFor(model => model.User.Address)</dd>
 
-<h2><span class="glyphicon glyphicon-saved"></span>Thank you For Your Purchase!</h2>
-<div>
-    <h4>The following order will be dispatched as per the details below.</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.User.Email)</dt>
-        <dd>@Html.DisplayFor(model => model.User.Email)</dd>
-        <dt>@Html.DisplayNameFor(model => model.User.Address)</dt>
-        <dd>@Html.DisplayFor(model => model.User.Address)</dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GST)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.GST)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SubTotal)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SubTotal)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GrandTotal)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.GrandTotal)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Date)
+                    </dd>
+                    <dd>
+                        <table class="table">
+                            <tr>
+                                <th>Souvenirs</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GST)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GST)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SubTotal)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SubTotal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GrandTotal)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GrandTotal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dd>
-            <table class="table">
-                <tr>
-                    <th>Souvenirs</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                @foreach (var item in Model.OrderItems)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Souvenir.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Souvenir.Price)
-                        </td>
-                    </tr>
-                }
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <label>GrandTotal:</label>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.GrandTotal)
-                    </td>
-                    <td>
-                        <label>GST:</label>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.GST)
-                    </td>
-                    <td>
-                        <label>SubTotal:</label>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.SubTotal)
-                    </td>
-                </tr>
-            </table>
-        </dd>
-    </dl>
+                            </tr>
+                            @foreach (var item in Model.OrderItems)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Souvenir.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Souvenir.Price)
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <div class="float-right">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">SubTotal:</th>
+                                        <td>NZD$ @Model.SubTotal</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">GST(15%):</th>
+                                        <td>NZD$ @Model.GST</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">GrandTotal:</th>
+                                        <td>NZD$ @Model.GrandTotal</td>
+                                    </tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </div>

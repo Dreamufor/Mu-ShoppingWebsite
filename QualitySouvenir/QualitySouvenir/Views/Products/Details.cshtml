@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <div class="card mt-3">
                 <div class="card-header">
-                    Souvenir
+                    Quality Souvenir
                 </div>
                 <div class="card-body">
                     @{
@@ -21,7 +21,13 @@
                             <img style="width: 300px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                         </div>
                         <div class="col-md-6">
-                            <dl class="dl-horizontal">
+                            <div>
+                                <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@Model.ID" 
+                                   asp-route-sortOrder ="@ViewData["CurrentSort"]"
+                                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                   class="alert-light alert-link float-right" title="Add to cart"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
+                            </div>
+                            <dl class="dl-horizontal mt-5">
                                 <dt>
                                     @Html.DisplayNameFor(model => model.Name)
                                 </dt>
@@ -32,7 +38,7 @@
                                     @Html.DisplayNameFor(model => model.Price)
                                 </dt>
                                 <dd>
-                                    @Html.DisplayFor(model => model.Price)
+                                    <span class="font-weight-bold" style="color:orange">NZD $@Html.DisplayFor(model => model.Price)</span>
                                 </dd>
                                 <dt>
                                     @Html.DisplayNameFor(model => model.Description)
@@ -42,7 +48,9 @@
                                 </dd>
                             </dl>
                             <div>
-                                <a asp-action="Index">Back to products</a>
+                                <a asp-action="Index" class="float-right btn btn-outline-secondary">
+                                    Back to products
+                                </a>          
                             </div>
                         </div>
                     </div>
