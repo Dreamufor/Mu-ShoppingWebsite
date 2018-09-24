@@ -4,13 +4,44 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 
-<ul class="nav nav-pills nav-stacked">
-    <li class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index">Profile</a></li>
-    <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword">Password</a></li>
-    @if (hasExternalLogins)
-    {
-        <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a asp-action="ExternalLogins">External logins</a></li>
-    }
-    <li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-action="TwoFactorAuthentication">Two-factor authentication</a></li>
-</ul>
 
+
+
+<div class="card mt-5">
+    <div class="card-header">
+        <a asp-action="Index" class="alert-light alert-link font-weight-normal bg-light">Manage</a>
+    </div>
+    <ul class="list-group list-group-flush">
+        <div class="@ManageNavPages.IndexNavClass(ViewContext)">
+            <li class="list-group-item">
+                <a class="alert-light font-weight-normal" asp-action="Index">
+                    My Profile
+                </a>
+            </li>
+        </div>
+        <div class="@ManageNavPages.ChangePasswordNavClass(ViewContext)">
+            <li class="list-group-item">
+                <a class="alert-light font-weight-normal" asp-action="ChangePassword">
+                    Change Password
+                </a>
+            </li>
+        </div>
+        @*<div class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)">
+            <li class="list-group-item">
+                <a class="alert-light font-weight-normal" asp-action="TwoFactorAuthentication">
+                    Authentication
+                </a>
+            </li>
+        </div>*@
+        @if (hasExternalLogins)
+        {
+            <div class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)">
+                <li class="list-group-item">
+                    <a class="alert-light font-weight-normal" asp-action="ExternalLogins">
+                        External logins
+                    </a>
+                </li>
+            </div>
+        }
+    </ul>
+</div>

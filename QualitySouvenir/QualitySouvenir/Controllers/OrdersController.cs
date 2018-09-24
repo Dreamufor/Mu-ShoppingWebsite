@@ -87,6 +87,48 @@ namespace QualitySouvenir.Controllers
             return View(order);
         }
 
+        // GET: Orders/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                .ThenInclude(o => o.Souvenir)
+                .ThenInclude(b => b.Category)
+                .SingleOrDefaultAsync(o => o.ID == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View(order);
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                .ThenInclude(o => o.Souvenir)
+                .ThenInclude(b => b.Category)
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return View(order);
+        }
+
 
         private OrderItem CreateOrderItemForThisItem(CartItem item)
         {
@@ -157,5 +199,33 @@ namespace QualitySouvenir.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> CustomerOrders()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            return View(await _context.Orders.Where(o => o.User == user).Include(o => o.User).AsNoTracking().ToListAsync());
+        }
+
+        // GET: Orders/Details/5
+        [Authorize(Roles = "Admin, Member")]
+        public async Task<IActionResult> OrderDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                .ThenInclude(o => o.Souvenir)
+                .ThenInclude(b => b.Category)
+                .SingleOrDefaultAsync(o => o.ID == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View(order);
+        }
     }
 }

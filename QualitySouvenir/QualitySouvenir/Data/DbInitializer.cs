@@ -93,7 +93,7 @@ namespace QualitySouvenir.Data
         Image="/images/products/mugs/dashing-through-the-no-mug.jpg"},
             new Souvenir{Name="Deep Space Diver",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=3, CategoryID=2,
         Image="/images/products/mugs/deep-space-diver-mug.jpg"},
-            new Souvenir{Name="Caffeine Elixir.jpg",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=4, CategoryID=2,
+            new Souvenir{Name="Caffeine Elixir",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=4, CategoryID=2,
         Image="/images/products/mugs/dr-caffeine-elixir-mug.jpg"},
             new Souvenir{Name="Dreamscape",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=4, CategoryID=2,
         Image="/images/products/mugs/dreamscape-mug.jpg"},

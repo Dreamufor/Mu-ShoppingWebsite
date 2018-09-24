@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using QualitySouvenir.Data;
 using QualitySouvenir.Models;
 using QualitySouvenir.Models.ManageViewModels;
 using QualitySouvenir.Services;
@@ -20,11 +21,14 @@ namespace QualitySouvenir.Controllers
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         private readonly UrlEncoder _urlEncoder;
+
+        private readonly ApplicationDbContext _context;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
         private const string RecoveryCodesKey = nameof(RecoveryCodesKey);
@@ -491,7 +495,6 @@ namespace QualitySouvenir.Controllers
 
             return View(nameof(ShowRecoveryCodes), model);
         }
-
         #region Helpers
 
         private void AddErrors(IdentityResult result)

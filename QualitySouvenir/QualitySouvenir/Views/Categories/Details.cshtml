@@ -5,8 +5,8 @@
 }
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             <h2>Details</h2>
             <div>
                 <h4>Category</h4>
@@ -43,7 +43,7 @@
                                         <img style="width: 250px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                                     </td>
                                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                    <td>NZD$ @Html.DisplayFor(modelItem => item.Price)</td>
                                 </tr>
 
                             }
@@ -56,6 +56,6 @@
                 <a asp-action="Index">Back to List</a>
             </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
     </div>
 </div>

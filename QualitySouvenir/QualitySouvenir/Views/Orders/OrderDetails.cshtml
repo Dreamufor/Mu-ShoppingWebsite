@@ -1,0 +1,104 @@
+﻿@model QualitySouvenir.Models.Order
+
+<h2>My Orders</h2>
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Order Details</h2>
+
+            <div>
+                <h4>Order</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.ID)</dt>
+                    <dd>@Html.DisplayFor(model => model.ID)</dd>
+
+                    <dt>Order Date</dt>
+                    <dd>@Html.DisplayFor(model => model.Date)</dd>
+
+                    <dt>Order Status</dt>
+                    <dd>@Html.DisplayFor(model => model.Status)</dd>
+
+                    <dt>Full Name</dt>
+                    <dd>@Html.DisplayFor(model => model.LastName)  @Html.DisplayFor(model => model.FirstName)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.User.Email)</dt>
+                    <dd>@Html.DisplayFor(model => model.User.Email)</dd>
+
+                    <dt>Phone Number</dt>
+                    <dd>@Html.DisplayFor(model => model.User.PhoneNumber)</dd>
+
+                    <dt>Address</dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.User.Address)--
+                        @Html.DisplayFor(model => model.City)--
+                        @Html.DisplayFor(model => model.PostalCode)--
+                        @Html.DisplayFor(model => model.State)--
+                        @Html.DisplayFor(model => model.Country)--
+                    </dd>
+
+
+                </dl>
+
+                <table class="table">
+                    <tr>
+                        <th>ITEMS</th>
+                        <th>CATEGORY</th>
+                        <th>PRICE</th>
+                        <th>QTY</th>
+                        <th>SUBTOTAL</th>
+                    </tr>
+                    @foreach (var item in Model.OrderItems)
+                    {
+                        var Subtotal = item.Souvenir.Price * item.Quantity;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Souvenir.ID). @Html.DisplayFor(modelItem => item.Souvenir.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Souvenir.Category.Name)
+                            </td>
+                            <td>
+                                NZD$ @Html.DisplayFor(modelItem => item.Souvenir.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                NZD$ @Subtotal
+                            </td>
+                        </tr>
+                    }                 
+                </table>
+                <div class="float-right">
+                    <table class="table table-borderless table-sm">
+                        <tbody>
+                            <tr>
+                                <th scope="row">SubTotal:</th>
+                                <td>NZD$ @Html.DisplayFor(model => model.SubTotal)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">GST(15%):</th>
+                                <td>NZD$  @Html.DisplayFor(model => model.GST)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">GrandTotal:</th>
+                                <td>NZD$ @Html.DisplayFor(model => model.GrandTotal)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-default" asp-controller="Orders" asp-action="CustomerOrders">Back to List</a>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

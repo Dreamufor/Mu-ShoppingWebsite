@@ -15,6 +15,7 @@ namespace QualitySouvenir.Views.Manage
 
         public static string ChangePassword => "ChangePassword";
 
+
         public static string ExternalLogins => "ExternalLogins";
 
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
