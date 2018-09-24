@@ -40,8 +40,8 @@
             <tbody>
                 @foreach (var item in Model.CartItems)
                 {
-                    var imgUrl = @Href(item.Souvenir.Image);
-                    var errImg = @Href("/images/main/showcase.jpg");
+                    var imgUrl = @Href("~" + item.Souvenir.Image);
+                    var errImg = @Href("~/images/main/showcase.jpg");
                     var unitPrice = (@item.Souvenir.Price) * (@item.Quantity);
                     <tr>
                         <th scope="row">

@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
                     @{
-                        var imgUrl = @Href(Model.Image);
+                        var imgUrl = @Href("~" + Model.Image);
                         var errImg = @Href("/images/main/showcase.jpg");
                     }
                     <div class="row">

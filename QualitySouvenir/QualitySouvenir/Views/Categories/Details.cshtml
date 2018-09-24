@@ -36,7 +36,7 @@
                             </tr>
                             @foreach (var item in Model.Souvenirs)
                             {
-                                var imgUrl = @Href(item.Image);
+                                var imgUrl = @Href("~"+item.Image);
                                 var errImg = @Href("/images/main/showcase.jpg");
                                 <tr>
                                     <td>

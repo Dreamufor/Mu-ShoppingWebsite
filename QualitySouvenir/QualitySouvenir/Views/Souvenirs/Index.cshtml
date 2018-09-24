@@ -64,7 +64,7 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        var imgUrl = @Href(item.Image);
+                        var imgUrl = @Href("~"+item.Image);
                         var errImg = @Href("/images/main/showcase.jpg");
                     <tr>
                         <td>
