@@ -7,8 +7,8 @@
 }
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <h2>Order Details</h2>
 
             <div>
@@ -45,35 +45,40 @@
 
                 </dl>
 
-                <table class="table">
-                    <tr>
-                        <th>ITEMS</th>
-                        <th>CATEGORY</th>
-                        <th>PRICE</th>
-                        <th>QTY</th>
-                        <th>SUBTOTAL</th>
-                    </tr>
-                    @foreach (var item in Model.OrderItems)
-                    {
-                        var Subtotal = item.Souvenir.Price * item.Quantity;
+                <table class="table ml-2 mr-2 table-sm">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Souvenir.ID). @Html.DisplayFor(modelItem => item.Souvenir.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Souvenir.Category.Name)
-                            </td>
-                            <td>
-                                NZD$ @Html.DisplayFor(modelItem => item.Souvenir.Price)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Quantity)
-                            </td>
-                            <td>
-                                NZD$ @Subtotal
-                            </td>
+                            <th scope="col">ID</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Souvenir</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total</th>
+
                         </tr>
-                    }                 
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            var imgUrl = @Href("~" + item.Souvenir.Image);
+                            var errImg = @Href("~/images/main/showcase.jpg");
+                            var unitPrice = (@item.Souvenir.Price) * (@item.Quantity);
+                            <tr>
+                                <th scope="row">
+                                    @item.Souvenir.ID
+                                </th>
+                                <td>
+                                    <img class="card-img-top" style="width: 30px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                                </td>
+                                <td><a asp-action="Details" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light">@item.Souvenir.Name</a></td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>NZD$ @item.Souvenir.Price</td>
+                                <td>NZD$ @unitPrice</td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
                 <div class="float-right">
                     <table class="table table-borderless table-sm">
@@ -99,6 +104,6 @@
                 <a class="btn btn-default" asp-controller="Orders" asp-action="CustomerOrders">Back to List</a>
             </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
     </div>
 </div>

@@ -6,15 +6,17 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<h3>Please Fill in the Order Details</h3>
 
-<h4>Order</h4>
-<hr />
 <div class="container-fluid">
+    <h3 class="text-center">Please Fill in the Order Details</h3>
+
+    <h4 class="text-center">Order</h4>
+    <hr />
     <div class="row">
-        <div class="col-md-2"></div>
-        <form asp-action="Create">
-            <div class="col-md-8">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form asp-action="Create">
+
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -73,10 +75,11 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </form>
+
+            </form>
+        </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

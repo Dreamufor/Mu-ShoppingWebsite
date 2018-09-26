@@ -5,7 +5,23 @@
 }
 
 
+<style>
+    div.card 
+    {
+        overflow: hidden;
+    }
 
+    div.card img 
+    {
+    -webkit-transform: scale(1.0);
+    -webkit-transition: 1s;
+    }
+
+    div.card img:hover 
+    {
+        -webkit-transform: scale(1.2);
+    }
+</style>
 <div class="container-fluid">
     <p class="indicateNav shadow-sm" style="margin:1% 7%;"><a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
     <div class="row">
@@ -53,7 +69,7 @@
 
             <div class="float-right mt-1">
                 <form asp-action="Index" method="get">
-                    <div class="input-group mb-2" style="width:500px;">
+                    <div class="input-group mb-2">
                         <input type="text" class="form-control" placeholder="Search by name" name="searchString"
                                value="@ViewData["CurrentFilter"]">
                         <div class="input-group-append">
@@ -78,13 +94,13 @@
                 @foreach (var item in Model)
                 {
                     var imgUrl = @Href("~"+item.Image);
-                    var errImg = @Href("images/main/showcase.jpg");
+                    var errImg = @Href("~/images/main/showcase.jpg");
 
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                        <div class="card ml-3 pb-1" style="height:355px;width:250px;">
+                        <div class="card pb-1">
                             <img class="card-img-top" style="width: 100%; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                             <div class="card-body">
-                                <div style="width:250px; text-overflow: ellipsis;overflow:hidden; white-space:nowrap;">
+                                <div>
                                     <a asp-action="Details" asp-route-id="@item.ID" class="alert-link alert-light">@Html.DisplayFor(modelItem => item.Name)</a>
                                 </div>
                                 <br />

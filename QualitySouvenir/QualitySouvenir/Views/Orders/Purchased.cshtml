@@ -6,8 +6,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <h2><span class="glyphicon glyphicon-saved"></span>Thank you For Your Purchase!</h2>
             <div>
                 <h4>The following order will be dispatched as per the details below.</h4>
@@ -49,27 +49,40 @@
                         @Html.DisplayFor(model => model.Date)
                     </dd>
                     <dd>
-                        <table class="table">
-                            <tr>
-                                <th>Souvenirs</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
 
-                            </tr>
-                            @foreach (var item in Model.OrderItems)
-                            {
+                        <table class="table ml-2 mr-2 table-sm">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Souvenir.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Quantity)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Souvenir.Price)
-                                    </td>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Souvenir</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+
                                 </tr>
-                            }
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.OrderItems)
+                                {
+                                    var imgUrl = @Href("~" + item.Souvenir.Image);
+                                    var errImg = @Href("~/images/main/showcase.jpg");
+                                    var unitPrice = (@item.Souvenir.Price) * (@item.Quantity);
+                                    <tr>
+                                        <th scope="row">
+                                            @item.Souvenir.ID
+                                        </th>
+                                        <td>
+                                            <img class="card-img-top" style="width: 30px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                                        </td>
+                                        <td><a asp-action="Details" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light">@item.Souvenir.Name</a></td>
+                                        <td>  @item.Quantity
+                                        </td>
+                                        <td>NZD$ @item.Souvenir.Price</td>
+                                        <td>NZD$ @unitPrice</td>
+                                    </tr>
+                                }
+                            </tbody>
                         </table>
                         <div class="float-right">
                             <table class="table table-borderless">
@@ -95,6 +108,6 @@
                 </dl>
             </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
     </div>
 </div>

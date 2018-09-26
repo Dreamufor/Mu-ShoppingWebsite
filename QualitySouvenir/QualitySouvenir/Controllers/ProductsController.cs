@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace QualitySouvenir.Controllers
 {
     [AllowAnonymous]
-    [Authorize(Roles = "Member")]
+    [Authorize(Roles = "Admin, Member")]
     public class ProductsController : Controller
     {
        

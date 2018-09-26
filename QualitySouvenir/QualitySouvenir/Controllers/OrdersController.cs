@@ -36,7 +36,7 @@ namespace QualitySouvenir.Controllers
         }
 
         // GET: Orders/Create
-        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin, Member")]
         public IActionResult Create()
         {
             return View();
@@ -47,7 +47,7 @@ namespace QualitySouvenir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin, Member")]
         public async Task<IActionResult> Create([Bind("FirstName, LastName, City, State, PostalCode, Country, Phone, Status, GST, GrandTotal, SubTotal, Date")] Order order)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);

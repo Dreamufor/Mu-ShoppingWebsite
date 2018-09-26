@@ -8,7 +8,7 @@
 {
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="navbar-nav float-right">
-            <li class="nav-item ml-3">
+            <li class="nav-item ml-3 bg-light">
                 <a class="nav-link" asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </li>
             <li class="nav-item dropdown">
@@ -26,7 +26,7 @@
                     </div>
             </li>
             <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link alert-light">Log out</button>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link alert-light bg-light">Log out</button>
             </li>
         </ul>
     </form>
@@ -35,10 +35,10 @@ else
 {
     <ul class="nav navbar-nav navbar-right ml-5">
         <li>
-        <a asp-area="" asp-controller="Account" asp-action="Register" class="alert-link alert-light ml-3 mt-4"><i class="fas fa-envelope mr-2"></i>Register</a>
+        <a asp-area="" asp-controller="Account" asp-action="Register" class="alert-link alert-light ml-3 mt-4 bg-light"><i class="fas fa-envelope mr-2"></i>Register</a>
         </li>
         <li>
-        <a asp-area="" asp-controller="Account" asp-action="Login" class="alert-link alert-light ml-3 mt-4"><i class="fas fa-user mr-2"></i>Log in</a>
+        <a asp-area="" asp-controller="Account" asp-action="Login" class="alert-link alert-light ml-3 mt-4 bg-light"><i class="fas fa-user mr-2"></i>Log in</a>
         </li>
     </ul>
 }

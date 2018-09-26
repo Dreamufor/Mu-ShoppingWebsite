@@ -40,7 +40,6 @@ C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\bin\Debu
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.dll
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.pdb
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfoInputs.cache
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfo.cs
 C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
@@ -57,3 +56,5 @@ C:\Users\lic82\Desktop\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir
 C:\Users\lic82\Desktop\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
 C:\Users\lic82\Desktop\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb
 C:\Users\lic82\Desktop\Mu-ShoppingWebsite-master\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
+C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
