@@ -240,12 +240,11 @@ namespace QualitySouvenir.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Address = model.Address, Enabled=true };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Address = model.Address, Enabled = true };
                 var result = await _userManager.CreateAsync(user, model.Password);
-
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Member"); //Week 7
+                    await _userManager.AddToRoleAsync(user, "Member");
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -256,13 +255,14 @@ namespace QualitySouvenir.Controllers
                     //_logger.LogInformation("User created a new account with password.");
                     //return RedirectToLocal(returnUrl);
 
-                    return View("ConfirmEmail");
+                    return View("ConfirmRegister");
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+
         }
 
         [HttpPost]

@@ -16,7 +16,7 @@ namespace QualitySouvenir.Services
         public Task SendEmailAsync(string email, string subject, string message)
         {
             var mes = new MimeMessage();
-            mes.From.Add(new MailboxAddress("Quality Souvenir", "qsouvenirmu@gmail.com"));
+            mes.From.Add(new MailboxAddress("Quality Souvenir", "ccc.kitchen.nz@gmail.com"));
             mes.To.Add(new MailboxAddress("User", email));
             mes.Subject = subject;
 
@@ -31,14 +31,14 @@ namespace QualitySouvenir.Services
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
 
-                client.Connect("smtp.gmail.com", 465, false);
+                client.Connect("smtp.gmail.com", 465, true);
 
                 // Note: since we don't have an OAuth2 token, disable
                 // the XOAUTH2 authentication mechanism.
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
 
                 // Note: only needed if the SMTP server requires authentication
-                client.Authenticate("qsouvenirmu@gmail.com", "Mu06091993");
+                client.Authenticate("ccc.kitchen.nz@gmail.com", "");
 
                 client.Send(mes);
                 client.Disconnect(true);
@@ -46,6 +46,7 @@ namespace QualitySouvenir.Services
 
             // Plug in your email service here to send an email.
             return Task.CompletedTask;
+
 
         }
     }

@@ -21,6 +21,14 @@
     {
         -webkit-transform: scale(1.2);
     }
+
+    li.list-group-item:hover {
+        background-color: #f8f9fa;
+        font-weight:bold;
+        text-align:center;
+    }
+
+
 </style>
 <div class="container-fluid">
     <p class="indicateNav shadow-sm" style="margin:1% 7%;"><a class="text-muted" asp-area="" asp-controller="Home" asp-action="Index"> Home</a> > @ViewData["Title"]</p>
@@ -28,22 +36,24 @@
         <div class="col-md-1"></div>
         <div class="col-md-2">
             <div class="card mt-5">
-                <div class="card-header">
-                    <a asp-action="Index" class="alert-light alert-link font-weight-normal bg-light">All Souvenirs</a>
-                </div>
+
                 @{
                     var categories = (List<Category>)ViewData["Categories"];
                 }
                 <ul class="list-group list-group-flush">
-                    @foreach (var item in categories)
-                    {
-                        <li class="list-group-item">
-                            <a class="alert-light font-weight-normal" asp-action="Index" asp-route-categoryId=@item.ID asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    <li class="list-group-item">
+                        <a asp-action="Index" class="alert-light font-weight-normal bg-transparent">All Souvenirs</a>
+                    </li>
+                        @foreach (var item in categories)
+                        {
+
+                        <li class="list-group-item">                           
+                            <a class="alert-light font-weight-normal bg-transparent" asp-action="Index" asp-route-categoryId=@item.ID asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">
                                 @item.Name
                             </a>
                         </li>
                     }
-                </ul>
+                    </ul>
             </div>
 
             <div class="card mt-3">
@@ -73,15 +83,15 @@
                         <input type="text" class="form-control" placeholder="Search by name" name="searchString"
                                value="@ViewData["CurrentFilter"]">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-se" type="submit" value="Search"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-secondary" type="submit" value="Search"><i class="fas fa-search"></i></button>
                         </div>
                         <a asp-action="Index" class="alert-light alert-link font-weight-normal ml-4 mt-1">All Products</a>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-categories ="@ViewData["Categories"]"
                            asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Name
                             <i class="fas fa-sort"></i>
                         </a>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]"
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]" asp-route-categories ="@ViewData["Categories"]"
                            asp-route-currentFilter="@ViewData["CurrentFilter"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Price
                             <i class="fas fa-sort"></i>
@@ -105,10 +115,7 @@
                                 </div>
                                 <br />
                                 <span class="font-weight-bold" style="color:orange">NZD $@Html.DisplayFor(modelItem => item.Price)</span>
-                                <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@item.ID" 
-                                   asp-route-sortOrder ="@ViewData["CurrentSort"]"
-                                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                                   class="alert-light alert-link float-right" title="Add to cart"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
+                                <a asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-id="@item.ID" class="alert-light alert-link float-right" title="Add to cart"><i class="fa fa-cart-plus" style="font-size:30px;"></i></a>
                             </div>
                         </div>
                     </div>
@@ -123,6 +130,7 @@
                     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
                 <a asp-action="Index"
+                   asp-route-categories ="@ViewData["Categories"]"
                    asp-route-sortOrder ="@ViewData["CurrentSort"]"
                    asp-route-page="@(Model.PageIndex -1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
@@ -130,6 +138,7 @@
                     Previous
                 </a>
                 <a asp-action="Index"
+                   asp-route-categories ="@ViewData["Categories"]"
                    asp-route-sortOrder ="@ViewData["CurrentSort"]"
                    asp-route-page="@(Model.PageIndex + 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"

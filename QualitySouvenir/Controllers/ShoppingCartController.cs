@@ -39,7 +39,7 @@ namespace QualitySouvenir.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
             cart.AddToCart(addedSouvenir, _context);
             // Go back to the main store page for more shopping
-            return RedirectToAction("Index", "Products");
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         public ActionResult RemoveFromCart(int id)

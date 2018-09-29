@@ -238,8 +238,6 @@ namespace QualitySouvenir.Controllers
             }
 
             var souvenir = await _context.Souvenirs
-                .Include(s => s.Category)
-                .Include(s => s.Supplier)
                 .AsNoTracking()//week 2
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (souvenir == null)

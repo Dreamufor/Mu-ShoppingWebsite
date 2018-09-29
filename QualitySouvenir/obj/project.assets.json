@@ -13627,11 +13627,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\文稿\\qualitysouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\桌面\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir.csproj",
       "projectName": "QualitySouvenir",
-      "projectPath": "\\\\vmware-host\\Shared Folders\\文稿\\qualitysouvenir\\QualitySouvenir\\QualitySouvenir.csproj",
+      "projectPath": "\\\\vmware-host\\Shared Folders\\桌面\\mu-qs-ws\\QualitySouvenir\\QualitySouvenir.csproj",
       "packagesPath": "C:\\Users\\Mu\\.nuget\\packages\\",
-      "outputPath": "\\\\vmware-host\\Shared Folders\\文稿\\qualitysouvenir\\QualitySouvenir\\obj\\",
+      "outputPath": "\\\\vmware-host\\Shared Folders\\桌面\\mu-qs-ws\\QualitySouvenir\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

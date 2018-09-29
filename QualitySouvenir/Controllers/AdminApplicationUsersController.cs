@@ -1,14 +1,16 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;//week 7
-using Microsoft.AspNetCore.Authorization;//week 7
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;//week 7
-using QualitySouvenir.Models;
+using Microsoft.Extensions.DependencyInjection;
 using QualitySouvenir.Data;
+using QualitySouvenir.Models;
 
 namespace QualitySouvenir.Controllers
 {
@@ -16,12 +18,12 @@ namespace QualitySouvenir.Controllers
     public class AdminApplicationUsersController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;//week 7
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public AdminApplicationUsersController(ApplicationDbContext context, IServiceProvider serviceProvider)
         {
             _context = context;
-            _userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();//week 7
+            _userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
         }
 
         // GET: AdminApplicationUsers
@@ -116,7 +118,7 @@ namespace QualitySouvenir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Enabled,Address,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public async Task<IActionResult> Edit(string id, [Bind("Enabled,Address,Id,UserName,NormalizedUserName,Email, PhoneNumber,PhoneNumberConfirmed")] ApplicationUser applicationUser)
         {
             if (id != applicationUser.Id)
             {
@@ -179,7 +181,6 @@ namespace QualitySouvenir.Controllers
         {
             return _context.ApplicationUser.Any(e => e.Id == id);
         }
-
-
+                          
     }
 }

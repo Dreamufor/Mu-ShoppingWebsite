@@ -227,5 +227,34 @@ namespace QualitySouvenir.Controllers
 
             return View(order);
         }
+
+        //change order status
+        public async Task<IActionResult> ChangeStatus(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
+            var order = await _context.Orders.Include(i => i.User).AsNoTracking().SingleOrDefaultAsync(o => o.ID == Convert.ToInt32(id));
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            if (order.Status.Equals(Status.shipped))
+            {
+                order.Status = Status.waitting;
+            }
+            else
+            {
+                order.Status = Status.shipped;
+            }
+
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

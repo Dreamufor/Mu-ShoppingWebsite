@@ -18,7 +18,6 @@ using QualitySouvenir.Services;
 namespace QualitySouvenir.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
 
