@@ -25,33 +25,19 @@ namespace QualitySouvenir.Controllers
 
         // GET: Products
         public async Task<IActionResult> Index(
-            string sortOrder,
+            string priceSortOrder,
+            string nameSortOrder,
             string searchString,
-            string currentFilter,
             string minPrice,
             string maxPrice,
             int? page,
             int? categoryId)
         {
-            //week3 create sorter
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["PriceSortParm"] = sortOrder == "price" ? "price_desc" : "price";
-
-            //week3 add paging
-            ViewData["CurrentSort"] = sortOrder;
-
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            //week3 add search 
-            ViewData["CurrentFilter"] = searchString;
-   
+            ViewData["NameSortParm"] = nameSortOrder == "name" ? "name_desc" : "name";
+            ViewData["PriceSortParm"] = priceSortOrder == "price" ? "price_desc" : "price";
+            ViewData["SearchFilter"] = searchString;
+            ViewData["MinPrice"] = minPrice;
+            ViewData["MaxPrice"] = maxPrice;
             var applicationDbContext = _context.Souvenirs;
             var souvenirs = from s in applicationDbContext
                             select s;
@@ -60,8 +46,7 @@ namespace QualitySouvenir.Controllers
                 souvenirs = souvenirs.Where(s => s.Name.Contains(searchString)
                                            || s.Description.Contains(searchString));
             }
-            ViewData["MinPrice"] = minPrice;
-            ViewData["MaxPrice"] = maxPrice;
+          
             if (!(String.IsNullOrEmpty(minPrice)))
             {
                 souvenirs = souvenirs.Where(s => s.Price >= Convert.ToDecimal(minPrice));
@@ -72,11 +57,8 @@ namespace QualitySouvenir.Controllers
                 souvenirs = souvenirs.Where(s => s.Price <= Convert.ToDecimal(maxPrice));
             }
 
-            switch (sortOrder)
+            switch (priceSortOrder)
             {
-                case "name_desc":
-                    souvenirs = souvenirs.OrderByDescending(s => s.Name);
-                    break;
                 case "price":
                     souvenirs = souvenirs.OrderBy(s => s.Price);
                     break;
@@ -87,18 +69,23 @@ namespace QualitySouvenir.Controllers
                     souvenirs = souvenirs.OrderBy(s => s.Name);
                     break;
             }
+            switch (nameSortOrder)
+            {
+                case "name_desc":
+                    souvenirs = souvenirs.OrderByDescending(s => s.Name);
+                    break;
+                case "name":
+                    souvenirs = souvenirs.OrderBy(s => s.Name);
+                    break;
+            }
             int pageSize = 8;
 
             if (categoryId != null)
             {
                 souvenirs = souvenirs.Where(c => c.CategoryID == categoryId);
-
             }
-
             var categories = _context.Categories.ToList();
             ViewData["Categories"] = categories;
-
-
             return View(await PaginatedList<Souvenir>.CreatAsync(souvenirs.AsNoTracking(), page ?? 1, pageSize));
         }
 

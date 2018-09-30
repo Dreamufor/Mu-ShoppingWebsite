@@ -21,7 +21,7 @@
 </a>
 
 
-<div class="dropdown-menu" id="displayMenu" style="display:compact;">
+<div class="dropdown-menu" id="displayMenu">
     <h5 class="bg-light pt-2 pb-2 text-dark text-center">My Shopping List</h5>
     <br />
     <div class="container" style="width:650px;height:auto;">
@@ -98,7 +98,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<script>
+@*<script>
     window.onload = function () { check(); };
     var displayMenu = document.getElementById("displayMenu");
     function check() {
@@ -116,4 +116,4 @@
             displayMenu.style.display = "compact";
         }
     }
-</script>
+</script>*@

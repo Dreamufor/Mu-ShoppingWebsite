@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-QualitySouvenir-CBCF1711-5B46-4C65-AB7D-6CAD8C2C66B7</UserSecretsId>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>

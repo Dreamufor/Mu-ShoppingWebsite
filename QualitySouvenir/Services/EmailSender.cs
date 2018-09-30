@@ -38,7 +38,7 @@ namespace QualitySouvenir.Services
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
 
                 // Note: only needed if the SMTP server requires authentication
-                client.Authenticate("ccc.kitchen.nz@gmail.com", "");
+                client.Authenticate("ccc.kitchen.nz@gmail.com", "ccc@kitchen");
 
                 client.Send(mes);
                 client.Disconnect(true);
