@@ -255,7 +255,7 @@ namespace QualitySouvenir.Controllers
                     //_logger.LogInformation("User created a new account with password.");
                     //return RedirectToLocal(returnUrl);
 
-                    return View("ConfirmRegister");
+                    return View("ConfirmEmail");
                 }
                 AddErrors(result);
             }

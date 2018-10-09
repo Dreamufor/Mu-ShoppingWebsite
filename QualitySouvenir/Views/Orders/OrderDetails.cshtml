@@ -102,8 +102,16 @@
                 </div>
             </div>
             <div>
-                <a class="btn btn-outline-secondary" asp-controller="Orders" asp-action="CustomerOrders">Back to List</a>
-            </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-outline-secondary" asp-controller="Orders" asp-action="Index">Back to List</a>
+                }
+                @if (User.IsInRole("Member"))
+                {
+                    <a class="btn btn-outline-secondary" asp-controller="Orders" asp-action="CustomerOrders">Back to List</a>
+
+                }
+                </div>
         </div>
         <div class="col-md-3"></div>
     </div>

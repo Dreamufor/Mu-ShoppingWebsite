@@ -176,12 +176,13 @@ namespace QualitySouvenir.Controllers
         // GET: Souvenirs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
+            var souvenir = await _context.Souvenirs.SingleOrDefaultAsync(m => m.ID == id);
             if (id == null)
             {
                 return NotFound();
             }
 
-            var souvenir = await _context.Souvenirs.SingleOrDefaultAsync(m => m.ID == id);
             if (souvenir == null)
             {
                 return NotFound();
@@ -201,32 +202,78 @@ namespace QualitySouvenir.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Price,Description,SupplierID,CategoryID,Image")] Souvenir souvenir)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Price,Description,SupplierID,CategoryID,Image")] Souvenir souvenir, IFormFile _files)
         {
+            var relativeName = "";
+            var fileName = "";
+
+            if (_files != null)
+            {
+                    fileName = ContentDispositionHeaderValue
+                                      .Parse(_files.ContentDisposition)
+                                      .FileName
+                                      .Trim('"');
+                    //Path for localhost
+                    relativeName = "/images/products/" + DateTime.Now.ToString("ddMMyyyy-HHmmssffffff") + fileName;
+
+                    using (FileStream fs = System.IO.File.Create(_hostingEnv.WebRootPath + relativeName))
+                    {
+                        await _files.CopyToAsync(fs);
+                        fs.Flush();
+                    }
+
+            }
+            else
+            {
+                relativeName = souvenir.Image;
+            }
+
+            souvenir.Image = relativeName;
+
             if (id != souvenir.ID)
             {
                 return NotFound();
             }
-            //week 2
-            var souvenirToUpdate = await _context.Souvenirs.SingleOrDefaultAsync(s => s.ID == id);
-            if (await TryUpdateModelAsync<Souvenir>(
-                souvenirToUpdate,
-                "",
-                s => s.Name, s => s.Price, s => s.Description, s => s.SupplierID, s => s.CategoryID, s => s.Image))
+            if (ModelState.IsValid)
             {
                 try
                 {
+                    _context.Update(souvenir);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateException /* ex */)
+                catch (DbUpdateConcurrencyException)
                 {
-                    ModelState.AddModelError("", "Unable to save changes." + "Try again, and if the problem persists " + "see your system administrator");
+                    if (!SouvenirExists(souvenir.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+                return RedirectToAction("Index");
             }
+            //var souvenirToUpdate = await _context.Souvenirs.SingleOrDefaultAsync(s => s.ID == id);
+            //if (await TryUpdateModelAsync<Souvenir>(
+            //    souvenirToUpdate,
+            //    "",
+            //    s => s.Name, s => s.Price, s => s.Description, s => s.SupplierID, s => s.CategoryID, s => s.Image))
+            //{
+            //    try
+            //    {
+            //        _context.Update(souvenir);
+            //        await _context.SaveChangesAsync();
+            //        return RedirectToAction(nameof(Index));
+            //    }
+            //    catch (DbUpdateException /* ex */)
+            //    {
+            //        ModelState.AddModelError("", "Unable to save changes." + "Try again, and if the problem persists " + "see your system administrator");
+            //    }
+            //}
             ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name", souvenir.CategoryID);
             ViewData["SupplierID"] = new SelectList(_context.Suppliers, "ID", "Name", souvenir.SupplierID);
-            return View(souvenirToUpdate);
+            return View(souvenir);
         }
 
         // GET: Souvenirs/Delete/5
