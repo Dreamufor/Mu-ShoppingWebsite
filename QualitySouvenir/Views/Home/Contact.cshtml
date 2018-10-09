@@ -44,8 +44,12 @@
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
         var marker = new google.maps.Marker({
-            position: myCenter,
-            animation: google.maps.Animation.BOUNCE
+            position: {
+                lat: -36.8807505,
+                lng: 174.7077619,
+            },
+            animation: google.maps.Animation.BOUNCE,
+            map: map
         });
         marker.setMap(map);
     }

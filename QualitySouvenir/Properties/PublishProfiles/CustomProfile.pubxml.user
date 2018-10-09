@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 06:47:30</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>09/29/2018 20:29:55</publishTime>
+      <publishTime>10/08/2018 16:12:23</publishTime>
     </File>
     <File Include="BouncyCastle.Crypto.dll">
       <publishTime>04/10/2018 13:45:44</publishTime>
@@ -548,22 +548,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:50</publishTime>
     </File>
     <File Include="QualitySouvenir.deps.json">
-      <publishTime>09/29/2018 21:43:04</publishTime>
+      <publishTime>10/08/2018 18:26:38</publishTime>
     </File>
     <File Include="QualitySouvenir.dll">
-      <publishTime>09/29/2018 21:26:43</publishTime>
+      <publishTime>10/08/2018 17:04:04</publishTime>
     </File>
     <File Include="QualitySouvenir.pdb">
-      <publishTime>09/29/2018 21:26:43</publishTime>
+      <publishTime>10/08/2018 17:04:04</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.dll">
-      <publishTime>09/29/2018 21:42:55</publishTime>
+      <publishTime>10/08/2018 18:26:25</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.pdb">
-      <publishTime>09/29/2018 21:42:55</publishTime>
+      <publishTime>10/08/2018 18:26:25</publishTime>
     </File>
     <File Include="QualitySouvenir.runtimeconfig.json">
-      <publishTime>09/29/2018 21:43:04</publishTime>
+      <publishTime>10/08/2018 18:26:38</publishTime>
     </File>
     <File Include="Remotion.Linq.dll">
       <publishTime>06/14/2016 23:16:46</publishTime>
@@ -674,7 +674,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:47</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/29/2018 21:43:04</publishTime>
+      <publishTime>10/08/2018 18:26:38</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>09/26/2018 06:47:30</publishTime>

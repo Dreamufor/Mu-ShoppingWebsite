@@ -87,7 +87,7 @@ namespace QualitySouvenir.Data
         // Mugs
             new Souvenir{Name="Anchored Direction",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=3, CategoryID=2,
         Image="/images/products/mugs/anchored-direction-mug.jpg"},
-            new Souvenir{Name="Bride and Groom Skeletons",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=3, CategoryID=2,
+            new Souvenir{Name="Bride and Groom",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=3, CategoryID=2,
         Image="/images/products/mugs/bride-and-groom-skeletons-mug.jpg"},
             new Souvenir{Name="Dashing Through",Price=16,Description="Must-buy, the essential goods in every day, make you in best mood.",SupplierID=3, CategoryID=2,
         Image="/images/products/mugs/dashing-through-the-no-mug.jpg"},

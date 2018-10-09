@@ -38,14 +38,9 @@
                             <label asp-for="CategoryID" class="control-label"></label>
                             <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
                         </div>
+                        <input type="file" name="_files" id="_files" /><br />
                         <div class="form-group">
-                            <label asp-for="Image" class="control-label"></label>
-                            <input asp-for="Image" class="form-control" />
-                            <span asp-validation-for="Image" class="text-danger"></span>
-                        </div>
-                        <input type="file" name="_files" id="_files" />
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-default" />
+                            <input type="submit" value="Create" class="btn btn-outline-secondary" />
                         </div>
                     </form>
                 </div>

@@ -82,10 +82,12 @@ namespace QualitySouvenir.Controllers
 
             if (categoryId != null)
             {
-                souvenirs = souvenirs.Where(c => c.CategoryID == categoryId);
+                souvenirs = souvenirs.Where(c => c.CategoryID == categoryId);            
             }
             var categories = _context.Categories.ToList();
             ViewData["Categories"] = categories;
+            ViewData["categoryId"] = categoryId;
+
             return View(await PaginatedList<Souvenir>.CreatAsync(souvenirs.AsNoTracking(), page ?? 1, pageSize));
         }
 

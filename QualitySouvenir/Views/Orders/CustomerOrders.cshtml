@@ -62,7 +62,7 @@
                                 @Html.DisplayFor(modelItem => item.Status)
                             </td>
                             <td>
-                                <a asp-controller="Orders" asp-action="OrderDetails" asp-route-id="@item.ID">Details</a> |
+                                <a asp-controller="Orders" asp-action="OrderDetails" asp-route-id="@item.ID" class="btn btn-outline-info">Details</a>
                             </td>
                         </tr>
                     }

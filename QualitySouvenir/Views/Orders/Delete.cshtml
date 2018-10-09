@@ -66,19 +66,19 @@
                         @Html.DisplayNameFor(model => model.GST)
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.GST)
+                        NZD$  @Html.DisplayFor(model => model.GST)
                     </dd>
                     <dt>
                         @Html.DisplayNameFor(model => model.SubTotal)
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.SubTotal)
+                        NZD$  @Html.DisplayFor(model => model.SubTotal)
                     </dd>
                     <dt>
                         @Html.DisplayNameFor(model => model.GrandTotal)
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.GrandTotal)
+                        NZD$  @Html.DisplayFor(model => model.GrandTotal)
                     </dd>
                     <dt>
                         @Html.DisplayNameFor(model => model.Date)
@@ -130,7 +130,7 @@
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="ID" />
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    <input type="submit" value="Delete" class="btn btn-outline-danger" /> |
                     <a asp-action="Index">Back to List</a>
                 </form>
             </div>

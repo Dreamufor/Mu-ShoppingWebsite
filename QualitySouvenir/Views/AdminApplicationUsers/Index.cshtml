@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h2 class="text-center"> <strong>User Management</strong></h2>
+            <h2 class="text-center text-dark"> <strong>User Management</strong></h2>
             <br /><br />
 
             <table class="table">
@@ -64,11 +64,11 @@
                                         <a asp-action="EnableDisable" asp-route-id="@item.Id">Enable</a>
                                     }
                                 </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                            </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                                </td>
                         </tr>
                     }
                 </tbody>

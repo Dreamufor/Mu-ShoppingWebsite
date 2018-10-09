@@ -88,13 +88,15 @@
                         <a asp-action="Index" class="alert-light alert-link font-weight-normal ml-4 mt-1">All Products</a>
                         <a asp-action="Index" 
                            asp-route-nameSortOrder="@ViewData["NameSortParm"]" 
-                           asp-route-categories ="@ViewData["Categories"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
+                           asp-route-categoryId="@ViewData["categoryId"]"
+                           class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Name
                             <i class="fas fa-sort"></i>
                         </a>
                         <a asp-action="Index" 
                             asp-route-priceSortOrder="@ViewData["PriceSortParm"]" 
-                            asp-route-categories ="@ViewData["Categories"]" class="alert-light alert-link font-weight-normal ml-4 mt-1">
+                            asp-route-categoryId="@ViewData["categoryId"]"
+                            class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Price
                             <i class="fas fa-sort"></i>
                         </a>
@@ -131,27 +133,30 @@
                     var preVDisabled = !Model.HasPreviousPage ? "disabled" : "";
                     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
-                <a asp-action="Index"
-                   asp-route-nameSortOrder="@ViewData["NameSortParm"]"
-                   asp-route-priceSortOrder="@ViewData["PriceSortParm"]" 
-                   asp-route-searchString ="@ViewData["SearchFilter"]"
-                   asp-route-minPrice ="@ViewData["MinPrice"]"
-                   asp-route-maxPrice ="@ViewData["MaxPrice"]"
-                   asp-route-page="@(Model.PageIndex -1)"
-                   class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
-                    Previous
-                </a>
-                <a asp-action="Index"
-                   asp-route-nameSortOrder="@ViewData["NameSortParm"]"
-                   asp-route-priceSortOrder="@ViewData["PriceSortParm"]" 
-                   asp-route-searchString ="@ViewData["SearchFilter"]"
-                   asp-route-minPrice ="@ViewData["MinPrice"]"
-                   asp-route-maxPrice ="@ViewData["MaxPrice"]"
-                   asp-route-page="@(Model.PageIndex + 1)"
-                   class="ml-3 btn btn-outline-secondary @nextDisabled" style="width:100px;">
-                    Next
-                </a>
-            </div>
+                    <a asp-action="Index"
+                       asp-route-nameSortOrder="@ViewData["NameSortParm"]"
+                       asp-route-priceSortOrder="@ViewData["PriceSortParm"]"
+                       asp-route-searchString="@ViewData["SearchFilter"]"
+                       asp-route-minPrice="@ViewData["MinPrice"]"
+                       asp-route-maxPrice="@ViewData["MaxPrice"]"
+                       asp-route-page="@(Model.PageIndex - 1)"
+                       asp-route-categoryId="@ViewData["categoryId"]"
+                       class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
+                        Previous
+                    </a>
+                    <a asp-action="Index"
+                       asp-route-nameSortOrder="@ViewData["NameSortParm"]"
+                       asp-route-priceSortOrder="@ViewData["PriceSortParm"]"
+                       asp-route-searchString="@ViewData["SearchFilter"]"
+                       asp-route-minPrice="@ViewData["MinPrice"]"
+                       asp-route-maxPrice="@ViewData["MaxPrice"]"
+                       asp-route-page="@(Model.PageIndex + 1)"
+                       asp-route-categoryId="@ViewData["categoryId"]"
+
+                       class="ml-3 btn btn-outline-secondary @nextDisabled" style="width:100px;">
+                        Next
+                    </a>
+                </div>
 
         </div>
         <div class="col-md-1"></div>

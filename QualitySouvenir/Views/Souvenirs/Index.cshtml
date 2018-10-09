@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <h2>Product List</h2>
-            <p>
-                <a asp-action="Create">Create New</a>
+            <h2 class="text-center text-dark">Product List</h2>
+            <p class="text-right">
+                <a asp-action="Create" class="btn btn-outline-secondary">Create New</a>
             </p>
             <form asp-action="Index" method="get">
                 <div class="input-group float-right mb-2" style="width:400px;">
@@ -87,9 +87,9 @@
                             @Html.DisplayFor(modelItem => item.Supplier.Name)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-outline-primary">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-outline-info">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-outline-danger">Delete</a>
                         </td>
                     </tr>
                     }
