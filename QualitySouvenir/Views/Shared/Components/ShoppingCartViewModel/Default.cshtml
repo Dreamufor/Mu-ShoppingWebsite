@@ -21,8 +21,8 @@
 </a>
 
 
-<div class="dropdown-menu" id="displayMenu">
-    <h5 class="bg-light pt-2 pb-2 text-dark text-center">My Shopping List</h5>
+<div class="dropdown-menu bg-light" id="displayMenu">
+    <h5 class="pt-2 pb-2 text-dark text-center">My Shopping List</h5>
     <br />
     <div class="container" style="width:650px;height:auto;">
         <table class="table ml-2 mr-2 table-sm">
@@ -67,15 +67,15 @@
                 <tbody>
                     <tr>
                         <th scope="row">SubTotal:</th>
-                        <td>NZD$ @Model.SubTotal</td>
+                        <td style="color:darkorange;" class="font-weight-bold">NZD$ @Model.SubTotal</td>
                     </tr>
                     <tr>
                         <th scope="row">GST(15%):</th>
-                        <td>NZD$ @Model.GST</td>
+                        <td style="color:darkorange;" class="font-weight-bold">NZD$ @Model.GST</td>
                     </tr>
                     <tr>
                         <th scope="row">GrandTotal:</th>
-                        <td>NZD$ @Model.CartTotal</td>
+                        <td style="color:darkorange;" class="font-weight-bold">NZD$ @Model.CartTotal</td>
                     </tr>
                     <tr>
                         <td colspan="2">

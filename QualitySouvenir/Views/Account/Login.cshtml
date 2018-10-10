@@ -31,7 +31,7 @@
                         <input asp-for="Password" class="form-control" placeholder="Password"/>
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
-                    <div class="form-group text-center">
+                    <div class="form-group text-center text-dark">
                         <div class="checkbox">
                             <label asp-for="RememberMe">
                                 <input asp-for="RememberMe" />
@@ -42,12 +42,12 @@
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-primary" style="width:100%;">Log in</button>
                     </div>
-                    <div class="form-group text-center">
+                    <div class="form-group text-center alert-light">
                         <p>
-                            <a asp-action="ForgotPassword">Forgot your password?</a>
+                            <a asp-action="ForgotPassword" class="alert-link">Forgot your password?</a>
                         </p>
                         <p>
-                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="alert-link">Register as a new user?</a>
                         </p>
                     </div>
                 </form>

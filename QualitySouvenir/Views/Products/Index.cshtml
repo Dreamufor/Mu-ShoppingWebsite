@@ -41,14 +41,14 @@
                     var categories = (List<Category>)ViewData["Categories"];
                 }
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
+                    <li class="list-group-item alert-light">
                         <a asp-action="Index" class="alert-light font-weight-normal bg-transparent">All Souvenirs</a>
                     </li>
                         @foreach (var item in categories)
                         {
 
-                        <li class="list-group-item">                           
-                            <a class="alert-light font-weight-normal bg-transparent" asp-action="Index" asp-route-categoryId=@item.ID>
+                        <li class="list-group-item alert-light">                           
+                            <a class="alert-link font-weight-normal bg-transparent" asp-action="Index" asp-route-categoryId=@item.ID>
                                 @item.Name
                             </a>
                         </li>
@@ -63,12 +63,12 @@
                 <div class="card-body">
                     <form asp-action="Index" method="get">
                         <div class="input-group m-1 w-auto">
-                            <input type="number" class="form-control" placeholder="$0" name="minPrice" value="@ViewData["MinPrice"]" />
+                            <input type="number" class="form-control" placeholder="$0" name="minPrice" value="@ViewData["MinPrice"]"/>
                             <div class="input-group-prepend">
 
                                 <span class="input-group-text">~</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="$0" name="maxPrice" value="@ViewData["MaxPrice"]" />
+                            <input type="number" class="form-control" placeholder="$0" name="maxPrice" value="@ViewData["MaxPrice"]"/>                                    
                         </div>
                         <button type="submit" class="btn btn-outline-secondary mt-2 mr-4 ml-4 w-75"><i class="fas fa-search"></i></button>
                     </form>
@@ -79,7 +79,7 @@
 
             <div class="float-right mt-1">
                 <form asp-action="Index" method="get">
-                    <div class="input-group mb-2">
+                    <div class="input-group mb-2 alert-light">
                         <input type="text" class="form-control" placeholder="Search by name" name="searchString"
                                value="@ViewData["SearchFilter"]">
                         <div class="input-group-append">
@@ -89,6 +89,8 @@
                         <a asp-action="Index" 
                            asp-route-nameSortOrder="@ViewData["NameSortParm"]" 
                            asp-route-categoryId="@ViewData["categoryId"]"
+                           asp-route-minPrice="@ViewData["MinPrice"]"
+                           asp-route-maxPrice="@ViewData["MaxPrice"]"
                            class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Name
                             <i class="fas fa-sort"></i>
@@ -96,6 +98,8 @@
                         <a asp-action="Index" 
                             asp-route-priceSortOrder="@ViewData["PriceSortParm"]" 
                             asp-route-categoryId="@ViewData["categoryId"]"
+                            asp-route-minPrice="@ViewData["MinPrice"]"
+                            asp-route-maxPrice="@ViewData["MaxPrice"]"
                             class="alert-light alert-link font-weight-normal ml-4 mt-1">
                             Price
                             <i class="fas fa-sort"></i>
@@ -139,8 +143,8 @@
                        asp-route-searchString="@ViewData["SearchFilter"]"
                        asp-route-minPrice="@ViewData["MinPrice"]"
                        asp-route-maxPrice="@ViewData["MaxPrice"]"
-                       asp-route-page="@(Model.PageIndex - 1)"
                        asp-route-categoryId="@ViewData["categoryId"]"
+                       asp-route-page="@(Model.PageIndex - 1)"                      
                        class="mr-3 btn btn-outline-secondary @preVDisabled" style="width:100px;">
                         Previous
                     </a>

@@ -92,6 +92,7 @@ namespace QualitySouvenir
                 var apContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
                 apContext.Database.EnsureCreated();
 
+
                 //If there is already an Administrator role, abort
                 var _roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
                 //var _userManager = serviceScope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
