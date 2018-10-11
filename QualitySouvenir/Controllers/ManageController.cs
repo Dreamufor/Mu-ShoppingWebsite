@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using QualitySouvenir.Data;
@@ -23,6 +24,7 @@ namespace QualitySouvenir.Controllers
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationDbContext _context;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         private readonly UrlEncoder _urlEncoder;
@@ -35,13 +37,15 @@ namespace QualitySouvenir.Controllers
           SignInManager<ApplicationUser> signInManager,
           IEmailSender emailSender,
           ILogger<ManageController> logger,
-          UrlEncoder urlEncoder)
+          UrlEncoder urlEncoder,
+          ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             _urlEncoder = urlEncoder;
+            _context = context;
         }
 
         [TempData]
@@ -73,38 +77,56 @@ namespace QualitySouvenir.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(IndexViewModel model)
         {
+            var user = await _userManager.GetUserAsync(User);
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            if(ModelState.IsValid)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
-
-            var email = user.Email;
-            if (model.Email != email)
-            {
-                var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
-                if (!setEmailResult.Succeeded)
+                user.Email = model.Email;
+                user.Address = model.Address;
+                user.PhoneNumber = model.PhoneNumber;
+                user.UserName = model.Username;
+                try
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+                    StatusMessage = "Your profile has been updated";
+                }
+                catch(DbUpdateException /* ex */)
+                {
+                    ModelState.AddModelError("", "Unable to save changes." + "Try again, and if the problem persists " + "see your system administrator");
+
                 }
             }
 
-            var phoneNumber = user.PhoneNumber;
-            if (model.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
-                }
-            }
+            //var user = await _userManager.GetUserAsync(User);
+            //if (user == null)
+            //{
+            //    throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            //}
 
-            StatusMessage = "Your profile has been updated";
+            //var email = user.Email;
+            //if (model.Email != email)
+            //{
+            //    var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
+            //    if (!setEmailResult.Succeeded)
+            //    {
+            //        throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+            //    }
+            //}
+
+            //var phoneNumber = user.PhoneNumber;
+            //if (model.PhoneNumber != phoneNumber)
+            //{
+            //    var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
+            //    if (!setPhoneResult.Succeeded)
+            //    {
+            //        throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+            //    }
+            //}
+                    
             return RedirectToAction(nameof(Index));
         }
 

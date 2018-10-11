@@ -89,7 +89,10 @@ namespace QualitySouvenir.Models
 
         public List<CartItem> GetCartItems(ApplicationDbContext db)
         {
-            List<CartItem> cartItems = db.CartItems.Include(i => i.Souvenir).Where(cartItem => cartItem.ShoppingCartID == ShoppingCartId).ToList();
+            List<CartItem> cartItems = db.CartItems
+                .Include(i => i.Souvenir)
+                .ThenInclude(i => i.Category)
+                .Where(cartItem => cartItem.ShoppingCartID == ShoppingCartId).ToList();
 
             return cartItems;
 

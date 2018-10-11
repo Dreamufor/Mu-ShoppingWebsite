@@ -548,22 +548,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:50</publishTime>
     </File>
     <File Include="QualitySouvenir.deps.json">
-      <publishTime>10/10/2018 14:32:04</publishTime>
+      <publishTime>10/11/2018 17:43:35</publishTime>
     </File>
     <File Include="QualitySouvenir.dll">
-      <publishTime>10/10/2018 14:28:11</publishTime>
+      <publishTime>10/11/2018 17:38:56</publishTime>
     </File>
     <File Include="QualitySouvenir.pdb">
-      <publishTime>10/10/2018 14:28:11</publishTime>
+      <publishTime>10/11/2018 17:38:56</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.dll">
-      <publishTime>10/10/2018 14:29:01</publishTime>
+      <publishTime>10/11/2018 17:40:16</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.pdb">
-      <publishTime>10/10/2018 14:29:01</publishTime>
+      <publishTime>10/11/2018 17:40:16</publishTime>
     </File>
     <File Include="QualitySouvenir.runtimeconfig.json">
-      <publishTime>10/10/2018 14:32:04</publishTime>
+      <publishTime>10/11/2018 17:43:36</publishTime>
     </File>
     <File Include="Remotion.Linq.dll">
       <publishTime>06/14/2016 23:16:46</publishTime>
@@ -674,7 +674,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:47</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/10/2018 14:32:04</publishTime>
+      <publishTime>10/11/2018 17:43:36</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>09/26/2018 06:47:30</publishTime>
@@ -683,6 +683,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 06:47:30</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
+      <publishTime>09/26/2018 06:47:30</publishTime>
+    </File>
+    <File Include="wwwroot/images/favicon.ico">
       <publishTime>09/26/2018 06:47:30</publishTime>
     </File>
     <File Include="wwwroot/images/main/aboutpage.jpg">

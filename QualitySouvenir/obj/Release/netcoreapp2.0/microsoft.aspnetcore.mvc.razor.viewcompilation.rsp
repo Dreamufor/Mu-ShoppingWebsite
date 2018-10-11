@@ -4,7 +4,7 @@
 --content-root=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir
 --file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\AccessDenied.cshtml
 --file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ConfirmEmail.cshtml
---file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ConfirmSuccessful.cshtml
+--file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ConfirmRegister.cshtml
 --file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ExternalLogin.cshtml
 --file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ForgotPassword.cshtml
 --file=\\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\Views\Account\ForgotPasswordConfirmation.cshtml

@@ -13,6 +13,6 @@ namespace QualitySouvenir.Models
 
         public String Address { get; set; }
 
-     
+        public IList<Order> Orders { get; set; }
     }
 }

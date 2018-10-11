@@ -50,8 +50,14 @@ namespace QualitySouvenir.Data
             modelBuilder.Entity<CartItem>().ToTable("CartItem");
 
             modelBuilder.Entity<OrderItem>().HasOne(p => p.Order).WithMany(o => o.OrderItems).OnDelete(DeleteBehavior.Cascade);
-        }
 
+            modelBuilder.Entity<Souvenir>().HasOne(p => p.Supplier).WithMany(o => o.Souvenirs).OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Souvenir>().HasOne(p => p.Category).WithMany(o => o.Souvenirs).OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Order>().HasOne(p => p.User).WithMany(o => o.Orders).OnDelete(DeleteBehavior.Cascade);
+
+        }
 
         public DbSet<QualitySouvenir.Models.ShoppingCart> ShoppingCart { get; set; }
     }

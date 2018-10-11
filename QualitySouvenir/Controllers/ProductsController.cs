@@ -24,20 +24,21 @@ namespace QualitySouvenir.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(
-            string priceSortOrder,
-            string nameSortOrder,
+        public async Task<IActionResult> Index(         
+            string sortOrder,           
             string searchString,
             string minPrice,
             string maxPrice,
             int? page,
             int? categoryId)
         {
-            ViewData["NameSortParm"] = nameSortOrder == "name" ? "name_desc" : "name";
-            ViewData["PriceSortParm"] = priceSortOrder == "price" ? "price_desc" : "price";
+            ViewData["SortParm"] = sortOrder;
+            ViewData["NameSortParm"] =String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["PriceSortParm"] = sortOrder == "price" ? "price_desc" : "price";
             ViewData["SearchFilter"] = searchString;
             ViewData["MinPrice"] = minPrice;
             ViewData["MaxPrice"] = maxPrice;
+
             var applicationDbContext = _context.Souvenirs;
             var souvenirs = from s in applicationDbContext
                             select s;
@@ -57,8 +58,11 @@ namespace QualitySouvenir.Controllers
                 souvenirs = souvenirs.Where(s => s.Price <= Convert.ToDecimal(maxPrice));
             }
 
-            switch (priceSortOrder)
+            switch (sortOrder)
             {
+                case "name_desc":
+                    souvenirs = souvenirs.OrderByDescending(s => s.Name);
+                    break;
                 case "price":
                     souvenirs = souvenirs.OrderBy(s => s.Price);
                     break;
@@ -69,15 +73,7 @@ namespace QualitySouvenir.Controllers
                     souvenirs = souvenirs.OrderBy(s => s.Name);
                     break;
             }
-            switch (nameSortOrder)
-            {
-                case "name_desc":
-                    souvenirs = souvenirs.OrderByDescending(s => s.Name);
-                    break;
-                case "name":
-                    souvenirs = souvenirs.OrderBy(s => s.Name);
-                    break;
-            }
+            
             int pageSize = 8;
 
             if (categoryId != null)

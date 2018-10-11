@@ -105,7 +105,7 @@ namespace QualitySouvenir.Controllers
                 return NotFound();
             }
 
-            var applicationUser = await _context.ApplicationUser.SingleOrDefaultAsync(m => m.Id == id);
+            var applicationUser = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
             if (applicationUser == null)
             {
                 return NotFound();
@@ -125,23 +125,20 @@ namespace QualitySouvenir.Controllers
                 return NotFound();
             }
 
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
             if (ModelState.IsValid)
             {
+                user.Address = applicationUser.Address;
                 try
                 {
-                    _context.Update(applicationUser);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ApplicationUserExists(applicationUser.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError("", "Unable to save changes." +
+                   "Try again, and if the problem persists " +
+                   "see your system administrator");
                 }
                 return RedirectToAction(nameof(Index));
             }

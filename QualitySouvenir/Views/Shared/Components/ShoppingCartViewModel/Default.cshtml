@@ -24,13 +24,14 @@
 <div class="dropdown-menu bg-light" id="displayMenu">
     <h5 class="pt-2 pb-2 text-dark text-center">My Shopping List</h5>
     <br />
-    <div class="container" style="width:650px;height:auto;">
+    <div class="container" style="width:800px;height:auto;">
         <table class="table ml-2 mr-2 table-sm">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Image</th>
                     <th scope="col">Souvenir</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
                     <th scope="col">Total</th>
@@ -43,22 +44,23 @@
                     var imgUrl = @Href("~" + item.Souvenir.Image);
                     var errImg = @Href("~/images/main/showcase.jpg");
                     var unitPrice = (@item.Souvenir.Price) * (@item.Quantity);
-                    <tr>
-                        <th scope="row">
-                            @item.Souvenir.ID
-                        </th>
-                        <td>
-                            <img class="card-img-top" style="width: 30px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
-                        </td>
-                        <td><a asp-action="Details" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light">@item.Souvenir.Name</a></td>
-                        <td>
-                            <a onclick="check2()" asp-action="RemoveFromCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-minus mr-1"></i></a>
-                            @item.Quantity
-                            <a onclick="check2()" asp-action="AddItemsToCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-plus ml-1"></i></a>
-                        </td>
-                        <td>NZD$ @item.Souvenir.Price</td>
-                        <td>NZD$ @unitPrice</td>
-                    </tr>
+                <tr>
+                    <th scope="row">
+                        @item.Souvenir.ID
+                    </th>
+                    <td>
+                        <img class="card-img-top" style="width: 30px; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                    </td>
+                    <td><a asp-action="Details" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light">@item.Souvenir.Name</a></td>
+                    <td>@item.Souvenir.Category.Name</td>
+                    <td>
+                        <a onclick="check2()" asp-action="RemoveFromCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-minus mr-1"></i></a>
+                        @item.Quantity
+                        <a onclick="check2()" asp-action="AddItemsToCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-plus ml-1"></i></a>
+                    </td>
+                    <td>NZD$ @item.Souvenir.Price</td>
+                    <td>NZD$ @unitPrice</td>
+                </tr>
                 }
             </tbody>
         </table>
