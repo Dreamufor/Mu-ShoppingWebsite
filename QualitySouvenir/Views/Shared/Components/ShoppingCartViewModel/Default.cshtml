@@ -21,7 +21,7 @@
 </a>
 
 
-<div class="dropdown-menu bg-light" id="displayMenu">
+<div class="dropdown-menu bg-light" id="displayMenu" style="display:compact;">
     <h5 class="pt-2 pb-2 text-dark text-center">My Shopping List</h5>
     <br />
     <div class="container" style="width:800px;height:auto;">
@@ -54,9 +54,9 @@
                     <td><a asp-action="Details" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light">@item.Souvenir.Name</a></td>
                     <td>@item.Souvenir.Category.Name</td>
                     <td>
-                        <a onclick="check2()" asp-action="RemoveFromCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-minus mr-1"></i></a>
+                        <a onclick="localStorage.setItem('display','inline')" asp-action="RemoveFromCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-minus mr-1"></i></a>
                         @item.Quantity
-                        <a onclick="check2()" asp-action="AddItemsToCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-plus ml-1"></i></a>
+                        <a onclick="localStorage.setItem('display','inline')" asp-action="AddItemsToCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-plus ml-1"></i></a>
                     </td>
                     <td>NZD$ @item.Souvenir.Price</td>
                     <td>NZD$ @unitPrice</td>
@@ -100,7 +100,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-@*<script>
+<script>
     window.onload = function () { check(); };
     var displayMenu = document.getElementById("displayMenu");
     function check() {
@@ -118,4 +118,4 @@
             displayMenu.style.display = "compact";
         }
     }
-</script>*@
+</script>

@@ -202,11 +202,11 @@ namespace QualitySouvenir.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Price,Description,SupplierID,CategoryID,Image")] Souvenir souvenir, IFormFile _files)
+        public async Task<IActionResult> Edit(int id, IFormFile _files)
         {
             var relativeName = "";
             var fileName = "";
-
+            var souvenir = await _context.Souvenirs.SingleOrDefaultAsync(s => s.ID == id);
             if (_files != null)
             {
                     fileName = ContentDispositionHeaderValue
@@ -224,10 +224,10 @@ namespace QualitySouvenir.Controllers
 
             }
             else
-            {
+            {                
                 relativeName = souvenir.Image;
             }
-
+            
             souvenir.Image = relativeName;
 
             if (id != souvenir.ID)
