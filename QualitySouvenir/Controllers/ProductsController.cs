@@ -45,7 +45,9 @@ namespace QualitySouvenir.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 souvenirs = souvenirs.Where(s => s.Name.Contains(searchString)
-                                           || s.Description.Contains(searchString));
+                                           || s.Description.Contains(searchString) 
+                                           || s.Category.Description.Contains(searchString)
+                                           || s.Category.Name.Contains(searchString));
             }
           
             if (!(String.IsNullOrEmpty(minPrice)))

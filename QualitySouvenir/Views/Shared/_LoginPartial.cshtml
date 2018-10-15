@@ -34,20 +34,20 @@
                     }
                 </div>
             </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link alert-light bg-light">Log out</button>
+            <li class="nav-item bg-light alert-light">
+                <button type="submit" class="btn btn-link navbar-btn navbar-link alert-link font-weight-bold">Log out</button>
             </li>
         </ul>
     </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right ml-5 alert-light bg-light">
-        <li class="nav-item">
-            <a asp-area="" asp-controller="Account" asp-action="Register" class="alert-link ml-3 mt-4"><i class="fas fa-envelope mr-2"></i>Register</a>
+    <ul class="navbar-nav float-right">
+        <li class="nav-item bg-light">
+            <a asp-area="" asp-controller="Account" asp-action="Register" class="nav-link mr-3 ml-3 font-weight-bold"><i class="fas fa-envelope mr-2"></i>Register</a>
         </li>
-        <li class="nav-item">
-            <a asp-area="" asp-controller="Account" asp-action="Login" class="alert-link ml-3 mt-4"><i class="fas fa-user mr-2"></i>Log in</a>
+        <li class="nav-item bg-light">
+            <a asp-area="" asp-controller="Account" asp-action="Login" class="nav-link mr-3 ml-3 font-weight-bold"><i class="fas fa-user mr-2"></i>Log in</a>
         </li>
     </ul>
 }

@@ -12,7 +12,7 @@
         totalQty = totalQty + item.Quantity;
     }
 }
-<a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" onclick="check2()">
+<a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor:pointer;" data-toggle="dropdown" onclick="check2()">
     <i class="fas fa-shopping-cart mr-2"> </i>
     Shopping Cart<span class="ml-1 badge badge-pill badge-secondary">
         @totalQty
@@ -23,9 +23,8 @@
 
 <div class="dropdown-menu bg-light" id="displayMenu" style="display:compact;">
     <h5 class="pt-2 pb-2 text-dark text-center">My Shopping List</h5>
-    <br />
-    <div class="container" style="width:800px;height:auto;">
-        <table class="table ml-2 mr-2 table-sm">
+    <div class="container-fluid" style="width:600px;height:auto;">
+        <table class="table ml-1 mr-1 table-sm">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -58,8 +57,8 @@
                         @item.Quantity
                         <a onclick="localStorage.setItem('display','inline')" asp-action="AddItemsToCart" asp-controller="ShoppingCart" asp-route-id="@item.Souvenir.ID" class="alert-link alert-light"><i class="fas fa-plus ml-1"></i></a>
                     </td>
-                    <td>NZD$ @item.Souvenir.Price</td>
-                    <td>NZD$ @unitPrice</td>
+                    <td>$@item.Souvenir.Price</td>
+                    <td>$@unitPrice</td>
                 </tr>
                 }
             </tbody>
@@ -105,7 +104,11 @@
     var displayMenu = document.getElementById("displayMenu");
     function check() {
         displayMenu.style.display = localStorage.getItem("display");
-        localStorage.setItem("display", "compact");
+        try {
+            localStorage.setItem("display", "compact");
+        } catch (e) {
+            alert('Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some settings may not save or some features may not work properly for you.');
+        }                 
     }
     function check2() {
         if (displayMenu.style.display === "inline") {

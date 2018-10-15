@@ -62,15 +62,14 @@
                 </div>
                 <div class="card-body">
                     <form asp-action="Index" method="get">
-                        <div class="input-group m-1 w-auto">
+                        <div class="input-group w-auto">
                             <input type="number" class="form-control" placeholder="$0" name="minPrice" value="@ViewData["MinPrice"]"/>
-                            <div class="input-group-prepend">
-
+                            <div class="input-group-prepend text-center">
                                 <span class="input-group-text">~</span>
                             </div>
                             <input type="number" class="form-control" placeholder="$0" name="maxPrice" value="@ViewData["MaxPrice"]"/>                                    
                         </div>
-                        <button type="submit" class="btn btn-outline-secondary mt-2 mr-4 ml-4 w-75"><i class="fas fa-search"></i></button>
+                        <button type="submit" class="btn btn-outline-secondary mt-3 mr-4 ml-4 w-75"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>
@@ -116,7 +115,7 @@
 
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                         <div class="card pb-1">
-                            <img class="card-img-top" style="width: 100%; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
+                            <img class="card-img-top img-fluid" style="width: 100%; height: auto;" src="@imgUrl" alt="Souvenir Image" onerror="this.onerror = null; this.src = '@errImg'">
                             <div class="card-body">
                                 <div>
                                     <a asp-action="Details" asp-route-id="@item.ID" class="alert-link alert-light">@Html.DisplayFor(modelItem => item.Name)</a>

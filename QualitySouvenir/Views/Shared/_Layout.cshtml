@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </environment>
-    <link href="~/images/favicon.ico" rel="icon" sizes="24x24"/>
+    <link href="~/images/favicon.ico" rel="icon" sizes="28x28"/>
     <style type="text/css">
         li.nav-item:hover {
             border: 1px solid #818182;
@@ -45,7 +45,7 @@
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item ml-3 dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-gift mr-2"></i>Products</a>
+                    <a class="nav-link dropdown-toggle" style="cursor:pointer;" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-gift mr-2"></i>Products</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" asp-controller="Products" asp-action="Index">
                             All Souvenirs
@@ -76,7 +76,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item ml-3 dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-2"></i>Administrator</a>
+                        <a class="nav-link dropdown-toggle" style="cursor:pointer;" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-2"></i>Administrator</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" asp-area="" asp-controller="Souvenirs" asp-action="Index">Souvenir</a>
                             <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
