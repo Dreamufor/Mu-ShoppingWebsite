@@ -94,3 +94,15 @@ C:\Users\Administrator\Dropbox\mu-qs-ws\QualitySouvenir\QualitySouvenir\obj\Debu
 \\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
 \\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb
 \\vmware-host\Shared Folders\桌面\mu-qs-ws\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.deps.json
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.json
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.runtimeconfig.dev.json
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.dll
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\bin\Debug\netcoreapp2.0\QualitySouvenir.pdb
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfoInputs.cache
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.AssemblyInfo.cs
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.dll
+\\vmware-host\Shared Folders\文稿\GitHubprogram\QualitiSouvenir_ASP\QualitySouvenir\obj\Debug\netcoreapp2.0\QualitySouvenir.pdb

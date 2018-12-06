@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 06:47:30</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>10/12/2018 12:36:20</publishTime>
+      <publishTime>12/06/2018 17:08:09</publishTime>
     </File>
     <File Include="BouncyCastle.Crypto.dll">
       <publishTime>04/10/2018 13:45:44</publishTime>
@@ -548,22 +548,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:50</publishTime>
     </File>
     <File Include="QualitySouvenir.deps.json">
-      <publishTime>10/12/2018 13:01:00</publishTime>
+      <publishTime>12/06/2018 17:13:46</publishTime>
     </File>
     <File Include="QualitySouvenir.dll">
-      <publishTime>10/12/2018 12:36:56</publishTime>
+      <publishTime>12/06/2018 17:09:20</publishTime>
     </File>
     <File Include="QualitySouvenir.pdb">
-      <publishTime>10/12/2018 12:36:56</publishTime>
+      <publishTime>12/06/2018 17:09:20</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.dll">
-      <publishTime>10/12/2018 12:37:13</publishTime>
+      <publishTime>12/06/2018 17:10:44</publishTime>
     </File>
     <File Include="QualitySouvenir.PrecompiledViews.pdb">
-      <publishTime>10/12/2018 12:37:13</publishTime>
+      <publishTime>12/06/2018 17:10:44</publishTime>
     </File>
     <File Include="QualitySouvenir.runtimeconfig.json">
-      <publishTime>10/12/2018 13:01:00</publishTime>
+      <publishTime>12/06/2018 17:13:46</publishTime>
     </File>
     <File Include="Remotion.Linq.dll">
       <publishTime>06/14/2016 23:16:46</publishTime>
@@ -674,13 +674,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 20:51:47</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/12/2018 13:01:00</publishTime>
+      <publishTime>12/06/2018 17:13:46</publishTime>
+    </File>
+    <File Include="wwwroot/.DS_Store">
+      <publishTime>12/06/2018 16:48:55</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>09/26/2018 06:47:30</publishTime>
     </File>
     <File Include="wwwroot/css/site.min.css">
       <publishTime>09/26/2018 06:47:30</publishTime>
+    </File>
+    <File Include="wwwroot/doc/web.pdf">
+      <publishTime>10/11/2018 12:44:35</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>09/26/2018 06:47:30</publishTime>
